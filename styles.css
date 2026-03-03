@@ -40,8 +40,8 @@ section { padding: 3rem 0; }
 .menu-item p { margin: 0 0 .6rem; color: var(--muted); font-size: .95rem; }
 .price { margin: .7rem 0 0; font-variant-numeric: tabular-nums; color: var(--text) !important; }
 .price span { font-weight: 700; }
-.how ol { padding-left: 1.1rem; }
-.how li { margin-bottom: .5rem; }
+.order ol { padding-left: 1.1rem; }
+.order li { margin-bottom: .5rem; }
 .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: .8rem; }
 .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); }
 .contact .small { color: var(--muted); font-size: .9rem; }
