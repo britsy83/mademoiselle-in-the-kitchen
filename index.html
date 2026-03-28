@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mademoiselle in the kitchen | French Pastries Menu</title>
-  <meta name="description" content="French homemade pastries by Mademoiselle in the Kitchen. Browse the menu and place your order.">
+  <meta name="description" content="Artisanal French homemade pastries by Mademoiselle in the Kitchen. Explore the menu, browse signature sweets, and place your order on Instagram.">
   <meta property="og:title" content="Mademoiselle in the kitchen">
-  <meta property="og:description" content="French homemade pastries menu and ordering details.">
+  <meta property="og:description" content="French homemade pastries menu, featured sweets, and ordering details.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/adea92_f4212aea4e90424f9127af4fe1a7e01d~mv2.png">
   <link rel="stylesheet" href="styles.css">
@@ -16,7 +16,10 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="#top">Mademoiselle in the kitchen</a>
+      <a class="brand" href="#top">
+        <span class="brand-mark">MIK</span>
+        <span>Mademoiselle in the kitchen</span>
+      </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
         <span class="nav-toggle__icon" aria-hidden="true">
@@ -26,59 +29,181 @@
         </span>
       </button>
       <ul id="nav-list" class="nav-list">
+        <li><a href="#story">Story</a></li>
         <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#order">Order</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" class="site-main">
     <section class="hero container" aria-labelledby="hero-title">
-      <p class="eyebrow">French Homemade Treats</p>
-      <img src="assets/images/adea92_f4212aea4e90424f9127af4fe1a7e01d~mv2.png" width="293" height="293" alt="Mademoiselle in the kitchen logo" class="hero-logo">
-      <p class="lede">A curated menu of homemade French pastries and sweets made to order.</p>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">French Homemade Treats</p>
+        <h1 id="hero-title">A pastry table with a Parisian soul, made lovingly to order.</h1>
+        <p class="lede">From shell-dipped madeleines to delicate sables and caneles, every batch is crafted with a soft, elegant, artisanal touch for gifting, gatherings, and everyday sweetness.</p>
+        <div class="hero-actions">
+          <a class="button" href="#menu">Explore the menu</a>
+          <a class="button button-secondary" href="https://instagram.com/mademoiselleinthekitchen/" target="_blank" rel="noopener noreferrer">Order on Instagram</a>
+        </div>
+        <ul class="hero-notes" aria-label="Highlights">
+          <li>Made fresh to order</li>
+          <li>French-inspired classics</li>
+          <li>Beautiful for gifting and parties</li>
+        </ul>
+      </div>
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="hero-panel hero-panel-main">
+          <img src="assets/images/IMG_7572-optimized.jpg" width="720" height="720" alt="" class="hero-photo">
+          <div class="hero-stamp">
+            <span>Signature favorite</span>
+            <strong>Pistachio + chocolate madeleines</strong>
+          </div>
+        </div>
+        <div class="hero-panel hero-panel-logo">
+          <img src="assets/images/adea92_f4212aea4e90424f9127af4fe1a7e01d~mv2.png" width="293" height="293" alt="" class="hero-logo">
+        </div>
+        <div class="hero-panel hero-panel-side">
+          <img src="assets/images/menus_side_image.7077f229.jpeg" width="680" height="900" alt="" class="hero-side-photo">
+        </div>
+      </div>
     </section>
 
-    <section class="menu-section container" id="menu" aria-labelledby="menu-title">
-      <div class="menu-head">
-        <h2 id="menu-title">Menu</h2>
-        <p>Prices are listed per set. Ingredients are shown for each item.</p>
+    <section class="story-section container reveal" id="story" aria-labelledby="story-title">
+      <div class="section-intro">
+        <p class="eyebrow">The Mood</p>
+        <h2 id="story-title">Soft, refined, and unmistakably French.</h2>
+        <p>This refreshed experience leans into the charm of a boutique patisserie: warm tones, elegant rhythm, and a menu that feels as curated as the pastries themselves.</p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card">
+          <h3>Handmade batches</h3>
+          <p>Every order keeps the artisanal spirit front and center, with small-batch sweets that feel personal and celebratory.</p>
+        </article>
+        <article class="story-card">
+          <h3>Gift-worthy details</h3>
+          <p>Glazes, shells, textures, and classic finishes make each box feel special before the first bite.</p>
+        </article>
+        <article class="story-card">
+          <h3>French comfort</h3>
+          <p>The menu balances elegance and familiarity with madeleines, caneles, meringues, shortbread cookies, and more.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="favorites container reveal" aria-labelledby="favorites-title">
+      <div class="section-intro section-intro-inline">
+        <div>
+          <p class="eyebrow">Featured Selection</p>
+          <h2 id="favorites-title">A few house favorites to fall for first.</h2>
+        </div>
+        <p>Start with the signatures, then wander through the full menu below.</p>
+      </div>
+      <div class="favorites-grid">
+        <article class="favorite-card favorite-card-large">
+          <img loading="lazy" src="assets/images/IMG_7572-optimized.jpg" width="141" height="141" alt="Madeleines pistache chocolat">
+          <div>
+            <p class="tag">Best seller</p>
+            <h3>Madeleines pistache chocolat</h3>
+            <p>Soft vanilla madeleines with dark chocolate shell and pistachio notes.</p>
+            <p class="price">12 pieces <span>$24</span></p>
+          </div>
+        </article>
+        <article class="favorite-card">
+          <img loading="lazy" src="assets/images/adea92_0ff106225b5b485a94cb6078fa07c26c~mv2.jpg" width="141" height="141" alt="Caneles">
+          <div>
+            <p class="tag">French classic</p>
+            <h3>Caneles</h3>
+            <p>Caramelized outside, custardy center, and deeply comforting.</p>
+            <p class="price">12 pieces <span>$15</span></p>
+          </div>
+        </article>
+        <article class="favorite-card">
+          <img loading="lazy" src="assets/images/adea92_64bc85e267614eb98bc6207c23b73f3e~mv2.png" width="141" height="141" alt="Sables confiture ou pate a tartiner">
+          <div>
+            <p class="tag">For sweet gifting</p>
+            <h3>Sables confiture ou pate a tartiner</h3>
+            <p>Shortbread cookies filled with fruit spread or hazelnut spread.</p>
+            <p class="price">12 pieces <span>$18</span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="menu-section container reveal" id="menu" aria-labelledby="menu-title">
+      <div class="section-intro section-intro-inline menu-head">
+        <div>
+          <p class="eyebrow">Full Menu</p>
+          <h2 id="menu-title">Choose your pastries, sweets, and classics.</h2>
+        </div>
+        <p>Prices are listed per set, and ingredients are included for each item.</p>
       </div>
       <div class="menu-grid">
         <article class="menu-item"><img loading="lazy" src="assets/images/adea92_ec48cbd2b52d437482fa7db69c75ac52~mv2.png" width="141" height="141" alt="Madeleines vanille"><h3>Madeleines vanille</h3><p>Vanilla madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt.</p><p class="price">12 pieces <span>$15</span></p></article>
         <article class="menu-item"><img loading="lazy" src="assets/images/adea92_77b69550c5f6497cbea97279d8d042f5~mv2.png" width="141" height="141" alt="Madeleines coque chocolat"><h3>Madeleines coque chocolat</h3><p>Chocolate shell madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, dark chocolate.</p><p class="price">12 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_cd7ab8c38b4e4cb3ac8bfbd40cee25a3~mv2.png" width="141" height="141" alt="Madeleines glaçage citron"><h3>Madeleines glaçage citron</h3><p>Lemon icing madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, lemon juice.</p><p class="price">12 pieces <span>$18</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_cd7ab8c38b4e4cb3ac8bfbd40cee25a3~mv2.png" width="141" height="141" alt="Madeleines glacage citron"><h3>Madeleines glacage citron</h3><p>Lemon icing madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, lemon juice.</p><p class="price">12 pieces <span>$18</span></p></article>
         <article class="menu-item"><img loading="lazy" src="assets/images/IMG_7572-optimized.jpg" width="141" height="141" alt="Madeleines pistache chocolat"><h3>Madeleines pistache chocolat</h3><p>Pistachio chocolate shell madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, dark chocolate, pistachio.</p><p class="price">12 pieces <span>$24</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_87c759a1494a4f86a3d0e0b9693eb9b6~mv2.jpg" width="141" height="141" alt="Madeleines colorées"><h3>Madeleines colorées</h3><p>Colored shell madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, candy melt.</p><p class="price">12 pieces <span>$18</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_91c7c25a040848118f9542dd6006d4dc~mv2.jpg" width="141" height="141" alt="Madeleines décorées"><h3>Madeleines décorées</h3><p>Customized madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, candy melt.</p><p class="price">12 pieces <span>$24</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_87c759a1494a4f86a3d0e0b9693eb9b6~mv2.jpg" width="141" height="141" alt="Madeleines colorees"><h3>Madeleines colorees</h3><p>Colored shell madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, candy melt.</p><p class="price">12 pieces <span>$18</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_91c7c25a040848118f9542dd6006d4dc~mv2.jpg" width="141" height="141" alt="Madeleines decorees"><h3>Madeleines decorees</h3><p>Customized madeleines</p><p>Butter, sugar, flour, eggs, baking powder, vanilla extract, salt, candy melt.</p><p class="price">12 pieces <span>$24</span></p></article>
         <article class="menu-item"><img loading="lazy" src="assets/images/adea92_758fd23b6eb44e6abe915d30e62b9336~mv2.jpg" width="141" height="141" alt="Meringues"><h3>Meringues</h3><p>Meringues</p><p>Egg white, sugar.</p><p class="price">12 pieces <span>$6</span> · 30 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_64bc85e267614eb98bc6207c23b73f3e~mv2.png" width="141" height="141" alt="Sablés confiture ou pâte à tartiner"><h3>Sablés confiture ou pâte à tartiner</h3><p>Fruit or hazelnut spread shortbread cookies</p><p>Flour, sugar, eggs, fruit or hazelnut spread.</p><p class="price">12 pieces <span>$18</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_179aaca780314a588580bb9087307963~mv2.jpg" width="141" height="141" alt="Sablés glaçage citron"><h3>Sablés glaçage citron</h3><p>Lemon icing shortbread cookies</p><p>Flour, sugar, eggs, lemon juice.</p><p class="price">12 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_7e8a4ce296914c66a2048f703238557e~mv2.jpg" width="141" height="141" alt="Macarons aux amandes"><h3>Macarons aux amandes</h3><p>Almond macaroons</p><p>Almond flour, sugar, egg white, crème fraîche, vanilla extract, almonds.</p><p class="price">12 pieces <span>$15</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_64bc85e267614eb98bc6207c23b73f3e~mv2.png" width="141" height="141" alt="Sables confiture ou pate a tartiner"><h3>Sables confiture ou pate a tartiner</h3><p>Fruit or hazelnut spread shortbread cookies</p><p>Flour, sugar, eggs, fruit or hazelnut spread.</p><p class="price">12 pieces <span>$18</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_179aaca780314a588580bb9087307963~mv2.jpg" width="141" height="141" alt="Sables glacage citron"><h3>Sables glacage citron</h3><p>Lemon icing shortbread cookies</p><p>Flour, sugar, eggs, lemon juice.</p><p class="price">12 pieces <span>$15</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_7e8a4ce296914c66a2048f703238557e~mv2.jpg" width="141" height="141" alt="Macarons aux amandes"><h3>Macarons aux amandes</h3><p>Almond macaroons</p><p>Almond flour, sugar, egg white, creme fraiche, vanilla extract, almonds.</p><p class="price">12 pieces <span>$15</span></p></article>
         <article class="menu-item"><img loading="lazy" src="assets/images/adea92_2dced56c3916445d99e56a38bbc6a7dd~mv2.jpg" width="141" height="141" alt="Fondants au chocolat"><h3>Fondants au chocolat</h3><p>Chocolate fondants</p><p>Eggs, sugar, butter, dark chocolate, flour.</p><p class="price">12 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_0ff106225b5b485a94cb6078fa07c26c~mv2.jpg" width="141" height="141" alt="Canelés"><h3>Canelés</h3><p>Canelés</p><p>Milk, sugar, flour, butter, eggs, vanilla extract.</p><p class="price">12 pieces <span>$15</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_0ff106225b5b485a94cb6078fa07c26c~mv2.jpg" width="141" height="141" alt="Caneles"><h3>Caneles</h3><p>Caneles</p><p>Milk, sugar, flour, butter, eggs, vanilla extract.</p><p class="price">12 pieces <span>$15</span></p></article>
         <article class="menu-item"><img loading="lazy" src="assets/images/adea92_1d017ceaf2a345abad844cd82e199c89~mv2.jpg" width="141" height="141" alt="Rochers coco"><h3>Rochers coco</h3><p>Coconut macaroons</p><p>Coconut, sugar, egg white.</p><p class="price">12 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_0a2e9a652478419ca9d1968dd16002b5~mv2.jpg" width="141" height="141" alt="Rochers coco-chocolat"><h3>Rochers coco-chocolat</h3><p>Chocolate coconut macaroons</p><p>Coconut, sugar, eggs, dark chocolate.</p><p class="price">12 pieces <span>$15</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_0a2e9a652478419ca9d1968dd16002b5~mv2.jpg" width="141" height="141" alt="Rochers coco chocolat"><h3>Rochers coco chocolat</h3><p>Chocolate coconut macaroons</p><p>Coconut, sugar, eggs, dark chocolate.</p><p class="price">12 pieces <span>$15</span></p></article>
         <article class="menu-item"><img loading="lazy" src="assets/images/adea92_97d05b07173c4482bad17e229199bc39~mv2.jpg" width="141" height="141" alt="Mantecaos"><h3>Mantecaos</h3><p>Mantecaos / Mantecados</p><p>Flour, sugar, canola oil, lemon zest, salt.</p><p class="price">12 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_337129731aba42f881b4e0d431d90dc2~mv2.jpg" width="141" height="141" alt="Pim's"><h3>Pim's</h3><p>Pim's</p><p>Sugar, flour, eggs, dark chocolate.</p><p class="price">12 pieces <span>$18</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_2e4ffba4e716456bb79dbe9291bd824d~mv2.jpg" width="141" height="141" alt="Cookies chocolat-pécan"><h3>Cookies chocolat-pécan</h3><p>Pecan-chocolate chip cookies</p><p>Flour, dark chocolate, sugar, butter, pecans, eggs, baking powder, salt.</p><p class="price">12 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_3a3e2ba5940c41c9bb7a183ddd90fce2~mv2.jpg" width="141" height="141" alt="Cookies chocolat-cacahuète"><h3>Cookies chocolat-cacahuète</h3><p>Peanut-chocolate chip cookies</p><p>Flour, dark chocolate, sugar, butter, peanuts, eggs, baking powder, salt.</p><p class="price">12 pieces <span>$15</span></p></article>
-        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_847d37d01d704825a1b84b0542b23951~mv2.jpg" width="141" height="141" alt="Beignets"><h3>Beignets (Carnaval / Ganses / Bugnes)</h3><p>French beignets</p><p>Flour, butter, milk, eggs, sugar, orange blossom water, baking powder, lemon zest, salt, canola oil.</p><p class="price">15 pieces <span>$15</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_337129731aba42f881b4e0d431d90dc2~mv2.jpg" width="141" height="141" alt="Pims"><h3>Pim&apos;s</h3><p>Pim&apos;s</p><p>Sugar, flour, eggs, dark chocolate.</p><p class="price">12 pieces <span>$18</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_2e4ffba4e716456bb79dbe9291bd824d~mv2.jpg" width="141" height="141" alt="Cookies chocolat pecan"><h3>Cookies chocolat pecan</h3><p>Pecan-chocolate chip cookies</p><p>Flour, dark chocolate, sugar, butter, pecans, eggs, baking powder, salt.</p><p class="price">12 pieces <span>$15</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_3a3e2ba5940c41c9bb7a183ddd90fce2~mv2.jpg" width="141" height="141" alt="Cookies chocolat cacahuete"><h3>Cookies chocolat cacahuete</h3><p>Peanut-chocolate chip cookies</p><p>Flour, dark chocolate, sugar, butter, peanuts, eggs, baking powder, salt.</p><p class="price">12 pieces <span>$15</span></p></article>
+        <article class="menu-item"><img loading="lazy" src="assets/images/adea92_847d37d01d704825a1b84b0542b23951~mv2.jpg" width="141" height="141" alt="Beignets"><h3>Beignets</h3><p>Carnaval, ganses, or bugnes style French beignets</p><p>Flour, butter, milk, eggs, sugar, orange blossom water, baking powder, lemon zest, salt, canola oil.</p><p class="price">15 pieces <span>$15</span></p></article>
         <article class="menu-item"><img loading="lazy" src="assets/images/adea92_e7e14c5c1c41439b83315aeba983f783~mv2.jpg" width="141" height="141" alt="Kangos"><h3>Kangos</h3><p>Kangos</p><p>Flour, butter, sugar, almond powder, corn starch, eggs, milk, salt, hazelnut spread.</p><p class="price">12 pieces <span>$15</span></p></article>
       </div>
     </section>
 
-    <section class="order container" id="order" aria-labelledby="order-title">
-      <h2 id="order-title">Order</h2>
-      <p>
-    To place an order, contact 
-    <a href="https://instagram.com/mademoiselleinthekitchen/"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Visit our Instagram profile">
-       @mademoiselleinthekitchen</a> on Instagram
-  </p>
-      <p>Include the item names, quantities, and your requested pickup date.</p>
+    <section class="gallery-section container reveal" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-intro section-intro-inline">
+        <div>
+          <p class="eyebrow">Visual Flavor</p>
+          <h2 id="gallery-title">A few glimpses from the pastry box.</h2>
+        </div>
+        <p>Textures, glazes, shells, and sweet little details that make each order feel special.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-card gallery-card-tall">
+          <img loading="lazy" src="assets/images/menus_side_image.7077f229.jpeg" width="680" height="900" alt="Assorted pastries arranged on a styled dessert table">
+        </figure>
+        <figure class="gallery-card">
+          <img loading="lazy" src="assets/images/adea92_91c7c25a040848118f9542dd6006d4dc~mv2.jpg" width="141" height="141" alt="Decorated madeleines">
+        </figure>
+        <figure class="gallery-card">
+          <img loading="lazy" src="assets/images/adea92_0ff106225b5b485a94cb6078fa07c26c~mv2.jpg" width="141" height="141" alt="Freshly baked caneles">
+        </figure>
+        <figure class="gallery-card">
+          <img loading="lazy" src="assets/images/adea92_847d37d01d704825a1b84b0542b23951~mv2.jpg" width="141" height="141" alt="French beignets dusted and plated">
+        </figure>
+        <figure class="gallery-card">
+          <img loading="lazy" src="assets/images/adea92_64bc85e267614eb98bc6207c23b73f3e~mv2.png" width="141" height="141" alt="Shortbread cookies with fruit or hazelnut filling">
+        </figure>
+      </div>
+    </section>
+
+    <section class="order container reveal" id="order" aria-labelledby="order-title">
+      <div class="order-card">
+        <div class="section-intro">
+          <p class="eyebrow">How To Order</p>
+          <h2 id="order-title">Simple, personal, and easy to arrange.</h2>
+          <p>Send your order through Instagram with the pastries you want, how many sets you need, and the pickup date you have in mind.</p>
+        </div>
+        <ol class="order-steps">
+          <li>Choose your favorites from the menu.</li>
+          <li>Message <a href="https://instagram.com/mademoiselleinthekitchen/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile">@mademoiselleinthekitchen</a>.</li>
+          <li>Share item names, quantities, and your requested pickup date.</li>
+        </ol>
+        <a class="button" href="https://instagram.com/mademoiselleinthekitchen/" target="_blank" rel="noopener noreferrer">Start your order</a>
+      </div>
     </section>
   </main>
 
