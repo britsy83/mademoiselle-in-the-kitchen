@@ -1,3 +1,14 @@
+const splash = document.getElementById('splash');
+if (splash) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    splash.hidden = true;
+  } else {
+    splash.addEventListener('animationend', (e) => {
+      if (e.animationName === 'splash-exit') splash.hidden = true;
+    });
+  }
+}
+
 const btn = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.nav-list');
 const year = document.getElementById('year');
