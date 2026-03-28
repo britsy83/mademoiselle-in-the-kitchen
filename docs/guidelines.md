@@ -60,21 +60,7 @@ Rules:
 
 # 3. Design Standards (UI-related tasks)
 
-Visual direction:
-
-- Modern
-- Clean
-- Elegant
-- Minimal
-- Premium feel
-- Typography: "Avenir Next" (primary), "Segoe UI" (fallback), sans-serif
-- Proper spacing rhythm
-- Clear visual hierarchy
-- Subtle micro-interactions only
-- No visual clutter
-
-Brand alignment:
-French pastry aesthetic. Soft, refined, artisanal.
+Must be compliant with brand-book.html
 
 ---
 
