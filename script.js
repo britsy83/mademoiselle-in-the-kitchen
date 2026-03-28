@@ -14,6 +14,10 @@ if (btn && nav) {
     setMenuState(!expanded);
   });
 
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuState(false));
+  });
+
   document.addEventListener('click', (event) => {
     if (!nav.classList.contains('open')) return;
     if (event.target instanceof Node && !event.target.closest('.nav')) {
