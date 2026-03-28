@@ -47,13 +47,13 @@ Rules:
 3. Implement changes.
 4. Commit with clear message.
 5. Push branch to origin. Never push directly to `main`.
-6. Open Pull Request into `main`.
-7. Provide structured PR summary including:
+6. Provide structured PR summary including:
 - What changed
 - Why
 - UX impact
 - SEO impact
 - Any notable performance considerations
+7. Instruct the user to create the PR manually in GitHub
 8. After the PR is merged, the feature branch will be deleted by the repository owner.
 
 ---
@@ -98,7 +98,7 @@ French pastry aesthetic. Soft, refined, artisanal.
 - Updated files
 - Feature branch created
 - Branch pushed to GitHub
-- Pull Request opened
 - PR summary provided
+- User instructed to finish the Git workflow in GitHub by opening the PR
 
 ---

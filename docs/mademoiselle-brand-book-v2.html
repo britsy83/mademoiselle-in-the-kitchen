@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mademoiselle in the Kitchen — Brand Book v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose:       #C9837A;
+    --rose-light: #E8C5BF;
+    --rose-pale:  #F5EAE7;
+    --rose-deep:  #9B5C55;
+    --cream:      #FAF6F0;
+    --cream-warm: #F0E8DC;
+    --cream-deep: #E2D5C4;
+    --gold:       #B8975A;
+    --gold-light: #D4B88A;
+    --gold-pale:  #F2EAD8;
+    --ink:        #2A2118;
+    --ink-mid:    #5A4A3F;
+    --ink-soft:   #8C7B70;
+    --white:      #FEFCFA;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Cormorant Garamond', Georgia, serif;
+    --font-sans:    'Jost', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,246,240,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--cream-deep);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--rose-deep);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+
+  section { padding: 100px 0; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+  .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--rose);
+  }
+
+  /* COVER */
+  #cover {
+    min-height: 100vh;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+  .cover-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(45deg, var(--rose-light) 0, var(--rose-light) 1px, transparent 0, transparent 50%),
+      repeating-linear-gradient(-45deg, var(--rose-light) 0, var(--rose-light) 1px, transparent 0, transparent 50%);
+    background-size: 32px 32px;
+  }
+  .cover-inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cover-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 40px;
+  }
+
+  /* Logo on cover */
+  .cover-logo-wrap {
+    margin-bottom: 40px;
+  }
+  .cover-logo-wrap svg {
+    width: 220px;
+    height: 220px;
+  }
+
+  .cover-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 86px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.0;
+    margin-bottom: 10px;
+  }
+  .cover-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 400;
+    color: var(--rose-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 40px;
+  }
+  .cover-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+  }
+  .cover-meta {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  /* ESSENCE */
+  #essence { background: var(--white); }
+  .essence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--cream-deep);
+    margin-top: 60px;
+  }
+  .essence-card {
+    padding: 48px 40px;
+    border-right: 1px solid var(--cream-deep);
+    border-bottom: 1px solid var(--cream-deep);
+  }
+  .essence-card:nth-child(2n) { border-right: none; }
+  .essence-card:nth-last-child(-n+2) { border-bottom: none; }
+  .essence-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+  .essence-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .essence-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    font-family: var(--font-body);
+  }
+
+  /* STORY */
+  #story { background: var(--cream); }
+  .story-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+  .story-aside { position: sticky; top: 80px; }
+  .story-aside-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .story-aside-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--rose-deep);
+    border-left: 2px solid var(--rose-light);
+    padding-left: 20px;
+  }
+  .story-body p {
+    font-size: 19px;
+    line-height: 1.85;
+    color: var(--ink-mid);
+    margin-bottom: 24px;
+  }
+  .story-body p:first-child::first-letter {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 0.75;
+    float: left;
+    margin-right: 10px;
+    margin-top: 8px;
+    color: var(--rose);
+  }
+
+  /* TAGLINES */
+  #taglines { background: var(--rose-pale); }
+  .tagline-hero {
+    margin-top: 60px;
+    padding: 64px;
+    background: var(--ink);
+    text-align: center;
+  }
+  .tagline-primary {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(26px, 3.5vw, 44px);
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .tagline-primary em { color: var(--rose-light); font-style: normal; }
+  .tagline-sub {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .tagline-alts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--cream-deep);
+    margin-top: 1px;
+  }
+  .tagline-alt {
+    background: var(--white);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .tagline-alt-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .tagline-alt-use {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* VOICE */
+  #voice { background: var(--white); }
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+  }
+  .voice-card {
+    padding: 36px 28px;
+    background: var(--cream);
+    border-top: 3px solid var(--rose);
+  }
+  .voice-card.not {
+    border-top-color: var(--cream-deep);
+    background: var(--white);
+    border: 1px solid var(--cream-deep);
+    border-top: 3px solid var(--cream-deep);
+  }
+  .voice-card h3 {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin-bottom: 16px;
+  }
+  .voice-card.not h3 { color: var(--ink-soft); }
+  .voice-words { display: flex; flex-direction: column; gap: 8px; }
+  .voice-word {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .voice-word del {
+    font-style: normal;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-decoration: line-through;
+  }
+  .do-dont {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .do-dont-card { padding: 36px; border: 1px solid var(--cream-deep); }
+  .do-dont-card h4 {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .do-card h4 { color: var(--rose); }
+  .dont-card h4 { color: var(--ink-soft); }
+  .do-dont-example {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-mid);
+    padding: 16px 20px;
+    border-left: 2px solid;
+    margin-bottom: 12px;
+  }
+  .do-card .do-dont-example { border-color: var(--rose-light); background: var(--rose-pale); }
+  .dont-card .do-dont-example { border-color: var(--cream-deep); background: var(--cream); color: var(--ink-soft); }
+
+  /* COLORS */
+  #colors { background: var(--cream); }
+  .palette-primary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    border: 1px solid var(--cream-deep);
+    overflow: hidden;
+  }
+  .swatch { display: flex; flex-direction: column; }
+  .swatch-color { height: 140px; }
+  .swatch-info { padding: 16px; background: var(--white); border-top: 1px solid var(--cream-deep); }
+  .swatch-name {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .swatch-hex { font-family: var(--font-sans); font-size: 11px; color: var(--ink-soft); margin-bottom: 4px; }
+  .swatch-role { font-family: var(--font-body); font-style: italic; font-size: 13px; color: var(--ink-soft); }
+  .palette-secondary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .swatch-sm .swatch-color { height: 80px; }
+  .color-usage {
+    margin-top: 48px;
+    padding: 40px;
+    background: var(--white);
+    border: 1px solid var(--cream-deep);
+  }
+  .color-usage h3 {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .color-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cream-deep);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+  .color-rule:last-child { border-bottom: none; }
+  .color-dot { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+
+  /* TYPOGRAPHY */
+  #typography { background: var(--white); }
+  .type-specimen { margin-top: 60px; }
+  .type-block {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--cream-deep);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .type-block:last-child { border-bottom: none; }
+  .type-meta { padding-top: 8px; }
+  .type-meta-name {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 8px;
+  }
+  .type-meta-detail { font-family: var(--font-sans); font-size: 12px; color: var(--ink-soft); line-height: 1.7; }
+  .type-use-tag {
+    display: inline-block;
+    background: var(--rose-pale);
+    color: var(--rose-deep);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-top: 8px;
+  }
+  .specimen-display { font-family: var(--font-display); font-style: italic; font-size: 56px; color: var(--ink); line-height: 1.1; }
+  .specimen-body { font-family: var(--font-body); font-size: 19px; color: var(--ink-mid); line-height: 1.85; max-width: 500px; }
+  .specimen-sans {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* LOGO */
+  #logo { background: var(--rose-pale); }
+  .logo-concepts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .logo-concept {
+    background: var(--white);
+    border: 1px solid var(--cream-deep);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .logo-concept.primary { background: var(--ink); border-color: var(--ink); }
+  .logo-concept-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 24px;
+    margin-bottom: 6px;
+  }
+  .logo-concept.primary .logo-concept-label { color: var(--rose-light); }
+  .logo-concept-desc { font-family: var(--font-body); font-style: italic; font-size: 14px; color: var(--ink-soft); }
+  .logo-concept.primary .logo-concept-desc { color: var(--cream-deep); }
+  .logo-rules {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .logo-rule { padding: 28px; border: 1px solid var(--cream-deep); background: var(--white); }
+  .logo-rule h4 {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+  }
+  .logo-rule ul { list-style: none; font-family: var(--font-sans); font-size: 13px; color: var(--ink-mid); line-height: 2; }
+  .logo-rule ul li::before { content: '—  '; color: var(--rose-light); }
+
+  /* PHOTOGRAPHY */
+  #photography { background: var(--white); }
+  .photo-principles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .photo-principle { padding: 40px; background: var(--cream); }
+  .photo-principle-num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--rose-light);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .photo-principle h3 { font-family: var(--font-display); font-size: 20px; color: var(--ink); margin-bottom: 10px; }
+  .photo-principle p { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mid); line-height: 1.7; }
+  .photo-dont {
+    margin-top: 40px;
+    padding: 32px 40px;
+    background: var(--cream);
+    border-left: 3px solid var(--cream-deep);
+  }
+  .photo-dont h4 {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .photo-dont ul { list-style: none; font-family: var(--font-sans); font-size: 13px; color: var(--ink-mid); line-height: 2.2; columns: 2; }
+  .photo-dont ul li::before { content: '✕  '; color: var(--rose-light); }
+
+  /* APPLICATIONS */
+  #applications { background: var(--cream); }
+  .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+  .app-card { background: var(--white); border: 1px solid var(--cream-deep); overflow: hidden; }
+  .app-mockup { height: 200px; background: var(--ink); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .app-mockup-rose { background: var(--rose-pale); }
+  .app-mockup-cream { background: var(--cream-warm); }
+  .app-info { padding: 24px; }
+  .app-info h3 { font-family: var(--font-display); font-size: 17px; color: var(--ink); margin-bottom: 6px; }
+  .app-info p { font-family: var(--font-sans); font-size: 12px; color: var(--ink-soft); line-height: 1.6; }
+
+  /* Mockup widgets */
+  .ig-post { width: 160px; background: var(--white); padding: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  .ig-header { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .ig-avatar { width: 20px; height: 20px; border-radius: 50%; background: var(--rose); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-style: italic; font-size: 10px; color: var(--white); }
+  .ig-handle { font-family: var(--font-sans); font-size: 8px; font-weight: 600; color: var(--ink); }
+  .ig-image { width: 100%; height: 140px; background: var(--rose-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+  .ig-image-inner { font-family: var(--font-display); font-style: italic; font-size: 28px; color: var(--rose-deep); opacity: 0.4; }
+  .ig-caption { font-family: var(--font-sans); font-size: 7px; color: var(--ink-mid); line-height: 1.5; }
+  .box-mockup { width: 140px; height: 160px; background: var(--cream); border: 1px solid var(--cream-deep); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; box-shadow: 4px 4px 0 var(--rose-light); }
+  .box-mockup-logo { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--ink); text-align: center; }
+  .box-mockup-sub { font-family: var(--font-sans); font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); text-align: center; }
+  .box-mockup-ribbon { width: 100%; height: 16px; background: var(--rose); display: flex; align-items: center; justify-content: center; }
+  .box-mockup-ribbon span { font-family: var(--font-sans); font-size: 6px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); }
+  .card-mockup { width: 160px; height: 100px; background: var(--ink); padding: 16px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 3px 3px 0 var(--gold); }
+  .card-mockup-name { font-family: var(--font-display); font-style: italic; font-size: 13px; color: var(--cream); }
+  .card-mockup-title { font-family: var(--font-sans); font-size: 7px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose-light); }
+  .card-mockup-contact { font-family: var(--font-sans); font-size: 7px; color: var(--ink-soft); line-height: 1.6; }
+
+  h1.chapter { font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 400; color: var(--ink); line-height: 1.15; margin-bottom: 16px; }
+  h1.chapter em { color: var(--rose); }
+  .chapter-intro { font-family: var(--font-body); font-size: 18px; color: var(--ink-mid); line-height: 1.75; max-width: 600px; }
+
+  /* MANIFESTO */
+  #manifesto { background: var(--ink); padding: 100px 0; }
+  .manifesto-inner { max-width: 640px; margin: 0 auto; padding: 0 40px; text-align: center; }
+  .manifesto-text { font-family: var(--font-display); font-style: italic; font-size: clamp(20px, 2.8vw, 30px); color: var(--cream); line-height: 1.7; margin-bottom: 36px; }
+  .manifesto-text em { color: var(--rose-light); font-style: normal; }
+  .manifesto-rule { width: 40px; height: 1px; background: rgba(255,255,255,0.2); margin: 0 auto; }
+
+  footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 40px; text-align: center; }
+  .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 28px; color: var(--cream); margin-bottom: 8px; }
+  .footer-sub { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 32px; }
+  .footer-note { font-family: var(--font-sans); font-size: 11px; color: var(--ink-soft); }
+
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0; color: var(--rose-light); }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--cream-deep); }
+  .divider span { font-size: 16px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .container, .container-wide { padding: 0 24px; }
+    section { padding: 72px 0; }
+    .story-layout { grid-template-columns: 1fr; gap: 40px; }
+    .story-aside { position: static; }
+    .essence-grid { grid-template-columns: 1fr; }
+    .voice-grid { grid-template-columns: 1fr; }
+    .tagline-alts { grid-template-columns: 1fr; }
+    .palette-primary { grid-template-columns: repeat(3, 1fr); }
+    .logo-concepts { grid-template-columns: 1fr; }
+    .photo-principles { grid-template-columns: 1fr; }
+    .app-grid { grid-template-columns: 1fr; }
+    .type-block { grid-template-columns: 1fr; gap: 16px; }
+    .do-dont { grid-template-columns: 1fr; }
+    .logo-rules { grid-template-columns: 1fr; }
+    .palette-secondary { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Mademoiselle in the Kitchen</span>
+  <ul class="nav-links">
+    <li><a href="#essence">Essence</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#taglines">Taglines</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#photography">Photography</a></li>
+    <li><a href="#applications">Applications</a></li>
+  </ul>
+</nav>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="cover-pattern"></div>
+  <div class="cover-inner">
+    <p class="cover-eyebrow">Brand Identity Guidelines</p>
+
+    <!-- Logo: circle with silhouette, brand name arched -->
+    <div class="cover-logo-wrap">
+      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer rings -->
+        <circle cx="110" cy="110" r="104" fill="none" stroke="#C9837A" stroke-width="1.2"/>
+        <circle cx="110" cy="110" r="98"  fill="none" stroke="#C9837A" stroke-width="0.4"/>
+        <!-- Inner fill -->
+        <circle cx="110" cy="110" r="97"  fill="#2A2118"/>
+
+        <!-- Silhouette group: traced from original logo, scaled to fit ~75px tall, centered -->
+        <g transform="translate(110,45) scale(0.28)">
+          <path d="M 28.9,21.4 L 3.3,23.3 L -5.7,45.1 L 10.0,62.6 L 19.9,58.4
+                   L 9.0,95.4 L 44.6,119.6 L 0.9,97.3 L -31.3,151.9 L -49.8,90.6
+                   L -57.4,103.0 L -67.4,82.1 L -35.6,168.5 L 3.8,119.1 L 11.9,136.2
+                   L 20.4,122.0 L 11.4,138.1 L 28.0,173.7 L 24.2,126.2 L 31.8,140.9
+                   L 30.4,181.8 L -18.0,230.2 L 18.0,191.7 L -10.4,232.5 L -5.2,273.8
+                   L 48.4,191.7 L 30.8,259.1 L 50.3,210.7 L 57.9,125.3 L 27.1,90.6
+                   L 54.1,67.9 L 55.1,39.9 L 33.2,23.3 L 8.1,38.4 Z" fill="#FAF6F0"/>
+          <path d="M 83.5,37.5 L 78.3,40.3 L 78.3,48.4 L 98.2,88.3 L 74.0,134.8
+                   L 59.3,150.4 L 54.1,145.7 L 52.7,159.5 L 59.3,165.6 L 73.1,153.8
+                   L 94.0,117.2 L 103.0,106.8 L 106.3,110.1 L 107.7,103.5
+                   L 101.1,86.4 L 100.6,93.0 L 90.6,46.0 Z" fill="#FAF6F0"/>
+          <!-- Bow -->
+          <path d="M -8,148 C -20,138 -38,138 -36,150 C -34,160 -18,163 -8,156 Z" fill="#C9837A"/>
+          <path d="M 8,148 C 20,138 32,140 28,150 C 26,160 12,162 8,156 Z" fill="#C9837A"/>
+          <ellipse cx="0" cy="151" rx="8" ry="6" fill="#9B5C55"/>
+          <!-- Macaron -->
+          <ellipse cx="-74" cy="84" rx="14" ry="9" fill="#C9837A"/>
+          <ellipse cx="-74" cy="93" rx="14" ry="9" fill="#C9837A"/>
+          <rect x="-88" y="85" width="28" height="9" rx="1" fill="#E8C5BF"/>
+        </g>
+
+        <!-- "Mademoiselle" arched along top of circle -->
+        <path id="top-arc" d="M 18,110 A 92,92 0 0,1 202,110" fill="none"/>
+        <text font-family="'Playfair Display',Georgia,serif" font-style="italic" font-size="16" fill="#FAF6F0" letter-spacing="1">
+          <textPath href="#top-arc" startOffset="50%" text-anchor="middle">Mademoiselle</textPath>
+        </text>
+
+        <!-- "in the kitchen" arched along bottom -->
+        <path id="bot-arc" d="M 22,118 A 92,92 0 0,0 198,118" fill="none"/>
+        <text font-family="'Jost',sans-serif" font-weight="300" font-size="9" fill="#C9837A" letter-spacing="4">
+          <textPath href="#bot-arc" startOffset="50%" text-anchor="middle">IN THE KITCHEN</textPath>
+        </text>
+
+        <!-- Gold star ornaments -->
+        <text x="58"  y="196" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#B8975A">✦</text>
+        <text x="162" y="196" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#B8975A">✦</text>
+      </svg>
+    </div>
+
+    <h1 class="cover-title">Mademoiselle</h1>
+    <p class="cover-subtitle">in the Kitchen</p>
+    <div class="cover-rule"></div>
+    <p class="cover-meta">Miami · French Cottage Pâtisserie</p>
+  </div>
+</section>
+
+<!-- BRAND ESSENCE -->
+<section id="essence">
+  <div class="container">
+    <p class="section-label">01 — Brand Essence</p>
+    <h1 class="chapter">The soul of the <em>brand</em></h1>
+    <p class="chapter-intro">Mademoiselle in the Kitchen is an artisan French pâtisserie, made to order — French homemade treats made with love, baked fresh for your pickup date, and delivered with warmth and care.</p>
+
+    <div class="essence-grid">
+      <div class="essence-card">
+        <span class="essence-icon">🥐</span>
+        <h3>Authentically French</h3>
+        <p>The recipes draw from French tradition — madeleines, canelés, sablés, meringues, and more. They are inspired by that tradition, sometimes adapted to welcome everyone around the table, including the little ones. Honest, flavourful, and never Americanized in spirit.</p>
+      </div>
+      <div class="essence-card">
+        <span class="essence-icon">✦</span>
+        <h3>Made to Order, Always Fresh</h3>
+        <p>Nothing sits on a shelf. Every order is baked fresh and ready for your pickup date. This is the opposite of mass production — it is handmade food that someone actually thought about, prepared for you specifically.</p>
+      </div>
+      <div class="essence-card">
+        <span class="essence-icon">💛</span>
+        <h3>The Goûter Spirit</h3>
+        <p>Born from the French after-school snack tradition — the beloved goûter — this brand carries the warmth of a home kitchen. An everyday ritual of care, shared with family, neighbors, and anyone lucky enough to get a box.</p>
+      </div>
+      <div class="essence-card">
+        <span class="essence-icon">🌺</span>
+        <h3>A Warm, Personal Experience</h3>
+        <p>Every order is a conversation, not a transaction. You reach out, we bake for you. It is personal, attentive, and rooted in genuine hospitality — the kind that makes you feel welcome before you've even taken a bite.</p>
+      </div>
+    </div>
+
+    <div class="divider"><span>✦</span></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;text-align:center;">
+      <div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--rose);margin-bottom:8px;">Mission</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--ink-mid);line-height:1.7;">To share a little taste of France with every home in Miami — one handmade treat at a time, made fresh for the people who order it.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--rose);margin-bottom:8px;">Vision</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--ink-mid);line-height:1.7;">To become the most beloved French cottage pâtisserie in South Florida — a name that means quality, care, and a guaranteed smile.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--rose);margin-bottom:8px;">Values</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--ink-mid);line-height:1.7;">Authenticity · Savoir-faire · Generosity · Warmth · Joy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section id="manifesto">
+  <div class="manifesto-inner">
+    <p class="manifesto-text">
+      "I bake because someone deserves <em>something real.</em><br><br>
+      Made fresh. Made for you.<br>
+      <em>A little taste of France, made in Miami.</em>"
+    </p>
+    <div class="manifesto-rule"></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="container">
+    <p class="section-label">02 — Brand Story</p>
+    <h1 class="chapter">The story behind the <em>apron</em></h1>
+
+    <div class="story-layout">
+      <div class="story-aside">
+        <p class="story-aside-label">In her own words</p>
+        <blockquote class="story-aside-quote">
+          "A home bakery born in French tradition, made to bring a little taste of France to your table."
+        </blockquote>
+      </div>
+      <div class="story-body">
+        <p>Ever since I was a little girl, I've loved baking — watching my mom and grandma in the kitchen was probably where it all started! Like most French kids, I began with the classic <em>gâteau au yaourt</em> (yogurt cake). I'd bake for my parents and their guests, but never took it much further… until I became a mom.</p>
+
+        <p>That's when I really got into it, baking afternoon snacks for the kids every day — the beloved French <em>goûter</em> tradition. It quickly became my favorite part of the day.</p>
+
+        <p>Then we moved to Miami, which was a wonderful adventure — but we missed the French baguette so much! I started baking it myself, tweaked the recipe to my liking, and began sharing it with neighbors and friends. When they asked if I'd sell it, and whether I made other French specialties like madeleines, I realized there was something worth pursuing here.</p>
+
+        <p>And so, Mademoiselle in the Kitchen was born — a home bakery born in French tradition, made to bring a little taste of France to your table. I'm always exploring new recipes, and I can't wait to share them with you!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAGLINES -->
+<section id="taglines">
+  <div class="container">
+    <p class="section-label">03 — Taglines & Messaging</p>
+    <h1 class="chapter">Words that carry the <em>brand</em></h1>
+    <p class="chapter-intro">Every word choice reinforces the same truth: this is authentic, handmade, French — and it is made specifically for you.</p>
+  </div>
+
+  <div class="container-wide" style="margin-top:60px;">
+    <div class="tagline-hero">
+      <p class="tagline-primary">A little taste of France,<br><em>made in Miami.</em></p>
+      <p class="tagline-sub">Primary tagline — use across all brand touchpoints</p>
+    </div>
+    <div class="tagline-alts">
+      <div class="tagline-alt">
+        <p class="tagline-alt-text">"French homemade treats, made with love."</p>
+        <p class="tagline-alt-use">Instagram bio · Website header</p>
+      </div>
+      <div class="tagline-alt">
+        <p class="tagline-alt-text">"Made fresh for your pickup date."</p>
+        <p class="tagline-alt-use">Packaging · Order confirmation</p>
+      </div>
+      <div class="tagline-alt">
+        <p class="tagline-alt-text">"Fait maison, avec amour."</p>
+        <p class="tagline-alt-use">Label copy · Gift tags · Short-form</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top:48px;">
+    <div style="padding:40px;background:var(--white);border:1px solid var(--cream-deep);">
+      <p class="section-label" style="margin-bottom:20px;">Key brand phrases to use consistently</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 40px;">
+        <p style="font-family:var(--font-body);font-style:italic;font-size:16px;color:var(--ink-mid);padding:8px 0;border-bottom:1px solid var(--cream-deep);">"Homemade with love, the French way"</p>
+        <p style="font-family:var(--font-body);font-style:italic;font-size:16px;color:var(--ink-mid);padding:8px 0;border-bottom:1px solid var(--cream-deep);">"Every order is personal — never mass produced"</p>
+        <p style="font-family:var(--font-body);font-style:italic;font-size:16px;color:var(--ink-mid);padding:8px 0;border-bottom:1px solid var(--cream-deep);">"Made fresh for your pickup date"</p>
+        <p style="font-family:var(--font-body);font-style:italic;font-size:16px;color:var(--ink-mid);padding:8px 0;border-bottom:1px solid var(--cream-deep);">"La qualité, always."</p>
+        <p style="font-family:var(--font-body);font-style:italic;font-size:16px;color:var(--ink-mid);padding:8px 0;border-bottom:1px solid var(--cream-deep);">"French by heart, Miami by home"</p>
+        <p style="font-family:var(--font-body);font-style:italic;font-size:16px;color:var(--ink-mid);padding:8px 0;border-bottom:1px solid var(--cream-deep);">"Your goûter, delivered"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE & TONE -->
+<section id="voice">
+  <div class="container">
+    <p class="section-label">04 — Voice & Tone</p>
+    <h1 class="chapter">How Mademoiselle <em>speaks</em></h1>
+    <p class="chapter-intro">The brand voice is warm but never casual, personal but never overly familiar. It carries the charm of someone who genuinely loves baking and is happy to share it with you.</p>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <h3>We are</h3>
+        <div class="voice-words">
+          <span class="voice-word">Warm & personal</span>
+          <span class="voice-word">Effortlessly chic</span>
+          <span class="voice-word">Proudly French</span>
+          <span class="voice-word">Honest & precise</span>
+          <span class="voice-word">Quietly confident</span>
+        </div>
+      </div>
+      <div class="voice-card">
+        <h3>We sound like</h3>
+        <div class="voice-words">
+          <span class="voice-word">A French friend who bakes</span>
+          <span class="voice-word">Knowing, not boastful</span>
+          <span class="voice-word">Inviting, not salesy</span>
+          <span class="voice-word">Storytelling, not listing</span>
+          <span class="voice-word">Excited about craft</span>
+        </div>
+      </div>
+      <div class="voice-card not">
+        <h3>We are never</h3>
+        <div class="voice-words">
+          <span class="voice-word"><del>Generic / mass-market</del></span>
+          <span class="voice-word"><del>Overly casual or slangy</del></span>
+          <span class="voice-word"><del>Pushy or promotional</del></span>
+          <span class="voice-word"><del>Inaccurate or overpromising</del></span>
+          <span class="voice-word"><del>Apologetic or unsure</del></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accuracy notes box -->
+    <div style="margin-top:40px;padding:32px 40px;background:var(--gold-pale);border-left:3px solid var(--gold);">
+      <p style="font-family:var(--font-sans);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px;">Important accuracy rules — always get these right</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 40px;">
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--ink-mid);line-height:1.8;padding:8px 0;border-bottom:1px solid var(--cream-deep);">Say <strong>"made fresh for your pickup date"</strong> — not necessarily the same day. Baking timing varies by product.</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--ink-mid);line-height:1.8;padding:8px 0;border-bottom:1px solid var(--cream-deep);">Recipes are <strong>inspired by French tradition</strong>, not always strictly classical. Some are adapted for all audiences, including children.</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--ink-mid);line-height:1.8;padding:8px 0;border-bottom:1px solid var(--cream-deep);">Every order is <strong>personal, never mass produced</strong> — this is always true and always worth saying.</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--ink-mid);line-height:1.8;padding:8px 0;border-bottom:1px solid var(--cream-deep);">Never claim a recipe is "the authentic Bordeaux canelé" or attribute recipes to a specific family member. Keep it genuine but not overly specific.</p>
+      </div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-dont-card do-card">
+        <h4>✓ Write this way</h4>
+        <div class="do-dont-example">"These pistachio chocolate madeleines are baked fresh for your pickup date — that's the only way to get the shell just right."</div>
+        <div class="do-dont-example">"The canelé is a little labour of love. Crispy on the outside, soft and custardy inside. It takes time. It's worth it."</div>
+        <div class="do-dont-example">"Merci for your order! I can't wait to bake this for you. 🥐"</div>
+      </div>
+      <div class="do-dont-card dont-card">
+        <h4>✕ Avoid this</h4>
+        <div class="do-dont-example">"Amazing deal! Order now and get 12 madeleines for just $15!!! 🔥🔥"</div>
+        <div class="do-dont-example">"Baked fresh the day of your pickup, using my grandmother's authentic Bordeaux recipe passed down for generations."</div>
+        <div class="do-dont-example">"Sorry for the late reply! LOL anyway here's our menu 😅"</div>
+      </div>
+    </div>
+
+    <!-- Instagram caption formula -->
+    <div style="margin-top:48px;padding:40px;background:var(--rose-pale);border:1px solid var(--rose-light);">
+      <p style="font-family:var(--font-sans);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:20px;">Instagram caption formula</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <div>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--rose-deep);margin-bottom:8px;">1. The hook</p>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--ink-mid);">A sensory or emotional opener.</p>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:14px;color:var(--rose-deep);margin-top:8px;">"There is something about a warm madeleine straight from the oven that no words can quite describe."</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--rose-deep);margin-bottom:8px;">2. The story</p>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--ink-mid);">One sentence of context — why this exists, what tradition it carries.</p>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:14px;color:var(--rose-deep);margin-top:8px;">"The canelé is one of those very French things — a crispy shell, a custardy heart. Simple ingredients, a lot of patience."</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--rose-deep);margin-bottom:8px;">3. The invite</p>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--ink-mid);">A soft, warm CTA. Always honest.</p>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:14px;color:var(--rose-deep);margin-top:8px;">"DM me to place your order — made fresh for your pickup date. 🇫🇷"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section id="colors">
+  <div class="container">
+    <p class="section-label">05 — Color Palette</p>
+    <h1 class="chapter">The palette of a <em>French kitchen</em></h1>
+    <p class="chapter-intro">Dusty rose, warm cream, and deep ink — the colors of a well-loved kitchen. Gold accents signal care and quality without shouting.</p>
+
+    <div class="palette-primary">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C9837A;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Madeleine Rose</p>
+          <p class="swatch-hex">#C9837A</p>
+          <p class="swatch-role">Primary brand color</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAF6F0;"></div>
+        <div class="swatch-info" style="border:1px solid #E2D5C4;">
+          <p class="swatch-name">Crème Fraîche</p>
+          <p class="swatch-hex">#FAF6F0</p>
+          <p class="swatch-role">Primary background</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2A2118;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Fond de Tarte</p>
+          <p class="swatch-hex">#2A2118</p>
+          <p class="swatch-role">Primary text / ink</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#B8975A;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Caramel Doré</p>
+          <p class="swatch-hex">#B8975A</p>
+          <p class="swatch-role">Gold accent</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5EAE7;"></div>
+        <div class="swatch-info" style="border:1px solid #E2D5C4;">
+          <p class="swatch-name">Pêche Pâle</p>
+          <p class="swatch-hex">#F5EAE7</p>
+          <p class="swatch-role">Soft blush / tint</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-secondary">
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#E8C5BF;"></div>
+        <div class="swatch-info" style="border:1px solid #E2D5C4;">
+          <p class="swatch-name">Rose Claire</p>
+          <p class="swatch-hex">#E8C5BF</p>
+          <p class="swatch-role">Light rose</p>
+        </div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#9B5C55;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Rose Profond</p>
+          <p class="swatch-hex">#9B5C55</p>
+          <p class="swatch-role">Deep rose / text</p>
+        </div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#E0D5C5;"></div>
+        <div class="swatch-info" style="border:1px solid #E2D5C4;">
+          <p class="swatch-name">Beurre Noisette</p>
+          <p class="swatch-hex">#E0D5C5</p>
+          <p class="swatch-role">Warm dividers</p>
+        </div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#8C7B70;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Café au Lait</p>
+          <p class="swatch-hex">#8C7B70</p>
+          <p class="swatch-role">Secondary text</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-usage">
+      <h3>Color Usage Rules</h3>
+      <div class="color-rule"><div class="color-dot" style="background:#C9837A;"></div><span><strong>Madeleine Rose</strong> — logo, headlines on light backgrounds, key accents, borders, CTAs</span></div>
+      <div class="color-rule"><div class="color-dot" style="background:#FAF6F0;border:1px solid #E2D5C4;"></div><span><strong>Crème Fraîche</strong> — primary page background, packaging base, negative space</span></div>
+      <div class="color-rule"><div class="color-dot" style="background:#2A2118;"></div><span><strong>Fond de Tarte</strong> — body text, dark backgrounds, premium packaging</span></div>
+      <div class="color-rule"><div class="color-dot" style="background:#B8975A;"></div><span><strong>Caramel Doré</strong> — use sparingly: gold accents, ribbons, special labels, foil details</span></div>
+      <div class="color-rule"><div class="color-dot" style="background:#F5EAE7;border:1px solid #E8C5BF;"></div><span><strong>Pêche Pâle</strong> — section backgrounds, Instagram story backgrounds, packaging tissue</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section id="typography">
+  <div class="container">
+    <p class="section-label">06 — Typography</p>
+    <h1 class="chapter">The typefaces of <em>Mademoiselle</em></h1>
+    <p class="chapter-intro">Three typefaces, each with a distinct role. Together they build a voice that is literary, refined, and warm.</p>
+
+    <div class="type-specimen">
+      <div class="type-block">
+        <div class="type-meta">
+          <p class="type-meta-name">Playfair Display</p>
+          <p class="type-meta-detail">Italic · Weight 400–700<br>The signature voice.</p>
+          <span class="type-use-tag">Display / Headlines</span>
+        </div>
+        <div>
+          <p class="specimen-display">Mademoiselle</p>
+          <p style="font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--ink-mid);margin-top:12px;font-style:italic;">in the Kitchen</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-meta">
+          <p class="type-meta-name">Cormorant Garamond</p>
+          <p class="type-meta-detail">Regular & Italic · Weight 300–400<br>Editorial warmth for storytelling.</p>
+          <span class="type-use-tag">Body Copy / Story</span>
+        </div>
+        <div>
+          <p class="specimen-body">A canelé is not merely a pastry. It is a little ritual — the caramelized shell, the soft custardy inside, the moment before the first bite.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-meta">
+          <p class="type-meta-name">Jost</p>
+          <p class="type-meta-detail">Weight 300–600 · Uppercase<br>Clean modern precision for labels.</p>
+          <span class="type-use-tag">Labels / UI / Metadata</span>
+        </div>
+        <div>
+          <p class="specimen-sans">Made to Order · Miami, Florida</p>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mid);margin-top:16px;">Madeleines Vanille · 12 pièces · $15</p>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:300;letter-spacing:0.08em;color:var(--ink-soft);margin-top:8px;">Contact @mademoiselleinthekitchen on Instagram to order</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section id="logo">
+  <div class="container">
+    <p class="section-label">07 — Logo System</p>
+    <h1 class="chapter">The mark of <em>Mademoiselle</em></h1>
+    <p class="chapter-intro">The logo is a circular badge: the silhouette at center, the brand name arched around it. It is recognizable, ownable, and works at any size.</p>
+
+    <div class="logo-concepts">
+      <!-- Dark version -->
+      <div class="logo-concept primary">
+        <svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="90" cy="90" r="84" fill="none" stroke="#C9837A" stroke-width="1.2"/>
+          <circle cx="90" cy="90" r="79" fill="none" stroke="#C9837A" stroke-width="0.4"/>
+          <circle cx="90" cy="90" r="78" fill="#2A2118"/>
+          <g transform="translate(90,34) scale(0.23)">
+            <path d="M 28.9,21.4 L 3.3,23.3 L -5.7,45.1 L 10.0,62.6 L 19.9,58.4 L 9.0,95.4 L 44.6,119.6 L 0.9,97.3 L -31.3,151.9 L -49.8,90.6 L -57.4,103.0 L -67.4,82.1 L -35.6,168.5 L 3.8,119.1 L 11.9,136.2 L 20.4,122.0 L 11.4,138.1 L 28.0,173.7 L 24.2,126.2 L 31.8,140.9 L 30.4,181.8 L -18.0,230.2 L 18.0,191.7 L -10.4,232.5 L -5.2,273.8 L 48.4,191.7 L 30.8,259.1 L 50.3,210.7 L 57.9,125.3 L 27.1,90.6 L 54.1,67.9 L 55.1,39.9 L 33.2,23.3 L 8.1,38.4 Z" fill="#FAF6F0"/>
+            <path d="M 83.5,37.5 L 78.3,40.3 L 78.3,48.4 L 98.2,88.3 L 74.0,134.8 L 59.3,150.4 L 54.1,145.7 L 52.7,159.5 L 59.3,165.6 L 73.1,153.8 L 94.0,117.2 L 103.0,106.8 L 106.3,110.1 L 107.7,103.5 L 101.1,86.4 L 100.6,93.0 L 90.6,46.0 Z" fill="#FAF6F0"/>
+            <path d="M -8,148 C -20,138 -38,138 -36,150 C -34,160 -18,163 -8,156 Z" fill="#C9837A"/>
+            <path d="M 8,148 C 20,138 32,140 28,150 C 26,160 12,162 8,156 Z" fill="#C9837A"/>
+            <ellipse cx="0" cy="151" rx="8" ry="6" fill="#9B5C55"/>
+            <ellipse cx="-74" cy="84" rx="14" ry="9" fill="#C9837A"/>
+            <ellipse cx="-74" cy="93" rx="14" ry="9" fill="#C9837A"/>
+            <rect x="-88" y="85" width="28" height="9" rx="1" fill="#E8C5BF"/>
+          </g>
+          <path id="arc-d1" d="M 14,90 A 76,76 0 0,1 166,90" fill="none"/>
+          <text font-family="'Playfair Display',Georgia,serif" font-style="italic" font-size="13" fill="#FAF6F0" letter-spacing="0.5">
+            <textPath href="#arc-d1" startOffset="50%" text-anchor="middle">Mademoiselle</textPath>
+          </text>
+          <path id="arc-d2" d="M 18,98 A 76,76 0 0,0 162,98" fill="none"/>
+          <text font-family="'Jost',sans-serif" font-weight="300" font-size="7.5" fill="#C9837A" letter-spacing="3">
+            <textPath href="#arc-d2" startOffset="50%" text-anchor="middle">IN THE KITCHEN</textPath>
+          </text>
+          <text x="47"  y="161" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#B8975A">✦</text>
+          <text x="133" y="161" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#B8975A">✦</text>
+        </svg>
+        <p class="logo-concept-label">Primary — dark background</p>
+        <p class="logo-concept-desc">Packaging, Instagram, premium use</p>
+      </div>
+
+      <!-- Light version -->
+      <div class="logo-concept">
+        <svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="90" cy="90" r="84" fill="none" stroke="#C9837A" stroke-width="1.2"/>
+          <circle cx="90" cy="90" r="79" fill="none" stroke="#C9837A" stroke-width="0.4"/>
+          <circle cx="90" cy="90" r="78" fill="#FAF6F0"/>
+          <g transform="translate(90,34) scale(0.23)">
+            <path d="M 28.9,21.4 L 3.3,23.3 L -5.7,45.1 L 10.0,62.6 L 19.9,58.4 L 9.0,95.4 L 44.6,119.6 L 0.9,97.3 L -31.3,151.9 L -49.8,90.6 L -57.4,103.0 L -67.4,82.1 L -35.6,168.5 L 3.8,119.1 L 11.9,136.2 L 20.4,122.0 L 11.4,138.1 L 28.0,173.7 L 24.2,126.2 L 31.8,140.9 L 30.4,181.8 L -18.0,230.2 L 18.0,191.7 L -10.4,232.5 L -5.2,273.8 L 48.4,191.7 L 30.8,259.1 L 50.3,210.7 L 57.9,125.3 L 27.1,90.6 L 54.1,67.9 L 55.1,39.9 L 33.2,23.3 L 8.1,38.4 Z" fill="#2A2118"/>
+            <path d="M 83.5,37.5 L 78.3,40.3 L 78.3,48.4 L 98.2,88.3 L 74.0,134.8 L 59.3,150.4 L 54.1,145.7 L 52.7,159.5 L 59.3,165.6 L 73.1,153.8 L 94.0,117.2 L 103.0,106.8 L 106.3,110.1 L 107.7,103.5 L 101.1,86.4 L 100.6,93.0 L 90.6,46.0 Z" fill="#2A2118"/>
+            <path d="M -8,148 C -20,138 -38,138 -36,150 C -34,160 -18,163 -8,156 Z" fill="#C9837A"/>
+            <path d="M 8,148 C 20,138 32,140 28,150 C 26,160 12,162 8,156 Z" fill="#C9837A"/>
+            <ellipse cx="0" cy="151" rx="8" ry="6" fill="#9B5C55"/>
+            <ellipse cx="-74" cy="84" rx="14" ry="9" fill="#C9837A"/>
+            <ellipse cx="-74" cy="93" rx="14" ry="9" fill="#C9837A"/>
+            <rect x="-88" y="85" width="28" height="9" rx="1" fill="#E8C5BF"/>
+          </g>
+          <path id="arc-l1" d="M 14,90 A 76,76 0 0,1 166,90" fill="none"/>
+          <text font-family="'Playfair Display',Georgia,serif" font-style="italic" font-size="13" fill="#2A2118" letter-spacing="0.5">
+            <textPath href="#arc-l1" startOffset="50%" text-anchor="middle">Mademoiselle</textPath>
+          </text>
+          <path id="arc-l2" d="M 18,98 A 76,76 0 0,0 162,98" fill="none"/>
+          <text font-family="'Jost',sans-serif" font-weight="300" font-size="7.5" fill="#C9837A" letter-spacing="3">
+            <textPath href="#arc-l2" startOffset="50%" text-anchor="middle">IN THE KITCHEN</textPath>
+          </text>
+          <text x="47"  y="161" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#B8975A">✦</text>
+          <text x="133" y="161" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#B8975A">✦</text>
+        </svg>
+        <p class="logo-concept-label">Light background version</p>
+        <p class="logo-concept-desc">Website, printed collateral, stationery</p>
+      </div>
+
+      <!-- Minimal / icon version -->
+      <div class="logo-concept" style="background:var(--rose-pale);">
+        <svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="90" cy="90" r="84" fill="none" stroke="#9B5C55" stroke-width="1.5"/>
+          <circle cx="90" cy="90" r="78" fill="#9B5C55"/>
+          <g transform="translate(90,34) scale(0.23)">
+            <path d="M 28.9,21.4 L 3.3,23.3 L -5.7,45.1 L 10.0,62.6 L 19.9,58.4 L 9.0,95.4 L 44.6,119.6 L 0.9,97.3 L -31.3,151.9 L -49.8,90.6 L -57.4,103.0 L -67.4,82.1 L -35.6,168.5 L 3.8,119.1 L 11.9,136.2 L 20.4,122.0 L 11.4,138.1 L 28.0,173.7 L 24.2,126.2 L 31.8,140.9 L 30.4,181.8 L -18.0,230.2 L 18.0,191.7 L -10.4,232.5 L -5.2,273.8 L 48.4,191.7 L 30.8,259.1 L 50.3,210.7 L 57.9,125.3 L 27.1,90.6 L 54.1,67.9 L 55.1,39.9 L 33.2,23.3 L 8.1,38.4 Z" fill="#FAF6F0"/>
+            <path d="M 83.5,37.5 L 78.3,40.3 L 78.3,48.4 L 98.2,88.3 L 74.0,134.8 L 59.3,150.4 L 54.1,145.7 L 52.7,159.5 L 59.3,165.6 L 73.1,153.8 L 94.0,117.2 L 103.0,106.8 L 106.3,110.1 L 107.7,103.5 L 101.1,86.4 L 100.6,93.0 L 90.6,46.0 Z" fill="#FAF6F0"/>
+            <path d="M -8,148 C -20,138 -38,138 -36,150 C -34,160 -18,163 -8,156 Z" fill="#E8C5BF"/>
+            <path d="M 8,148 C 20,138 32,140 28,150 C 26,160 12,162 8,156 Z" fill="#E8C5BF"/>
+            <ellipse cx="0" cy="151" rx="8" ry="6" fill="#C9837A"/>
+          </g>
+          <path id="arc-r1" d="M 14,90 A 76,76 0 0,1 166,90" fill="none"/>
+          <text font-family="'Playfair Display',Georgia,serif" font-style="italic" font-size="13" fill="#FAF6F0" letter-spacing="0.5">
+            <textPath href="#arc-r1" startOffset="50%" text-anchor="middle">Mademoiselle</textPath>
+          </text>
+          <path id="arc-r2" d="M 18,98 A 76,76 0 0,0 162,98" fill="none"/>
+          <text font-family="'Jost',sans-serif" font-weight="300" font-size="7.5" fill="#E8C5BF" letter-spacing="3">
+            <textPath href="#arc-r2" startOffset="50%" text-anchor="middle">IN THE KITCHEN</textPath>
+          </text>
+          <text x="47"  y="161" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#E8C5BF">✦</text>
+          <text x="133" y="161" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#E8C5BF">✦</text>
+        </svg>
+        <p class="logo-concept-label">Rose profile variant</p>
+        <p class="logo-concept-desc">Instagram profile, stickers, gift tags</p>
+      </div>
+    </div>
+
+    <div class="logo-rules">
+      <div class="logo-rule">
+        <h4>✓ Always do</h4>
+        <ul>
+          <li>Use Playfair Display Italic for "Mademoiselle"</li>
+          <li>Use Jost Light for "IN THE KITCHEN" in spaced caps</li>
+          <li>Keep the ✦ ornaments at 3 and 9 o'clock positions</li>
+          <li>Use dark version on dark backgrounds only</li>
+          <li>Maintain the double circle ring detail</li>
+          <li>Keep clear space equal to 10% of logo diameter</li>
+        </ul>
+      </div>
+      <div class="logo-rule">
+        <h4>✕ Never do</h4>
+        <ul>
+          <li>Stretch, skew or rotate the logo</li>
+          <li>Place on a busy photographic background</li>
+          <li>Use colors outside the brand palette</li>
+          <li>Add drop shadows or glow effects</li>
+          <li>Remove the silhouette from the badge</li>
+          <li>Use the logo at less than 40px diameter</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOGRAPHY -->
+<section id="photography">
+  <div class="container">
+    <p class="section-label">08 — Photography & Visual Direction</p>
+    <h1 class="chapter">Images that make you <em>taste</em></h1>
+    <p class="chapter-intro">Photography is the brand's most powerful tool on Instagram. Every image should feel like it was taken in a sun-filled kitchen on a Saturday morning.</p>
+
+    <div class="photo-principles">
+      <div class="photo-principle">
+        <p class="photo-principle-num">01</p>
+        <h3>Natural light, always</h3>
+        <p>Shoot near a window, in soft morning or afternoon light. No harsh flash. The warmth of natural light is the warmth of the brand.</p>
+      </div>
+      <div class="photo-principle">
+        <p class="photo-principle-num">02</p>
+        <h3>Warm, muted tones</h3>
+        <p>Edit toward warm creams, soft pinks, and golden tones. Avoid cool blue filters or heavy saturation. Think butter, linen, honey.</p>
+      </div>
+      <div class="photo-principle">
+        <p class="photo-principle-num">03</p>
+        <h3>Real & honest moments</h3>
+        <p>A slight dusting of powdered sugar on the table. A madeleine cooling on a rack. Real moments from a real kitchen. Slight imperfection feels warm and trustworthy.</p>
+      </div>
+      <div class="photo-principle">
+        <p class="photo-principle-num">04</p>
+        <h3>Generous negative space</h3>
+        <p>Don't crowd the frame. Let one beautiful canelé sit alone on a cream linen cloth. White space signals care. Cluttered frames signal market stall.</p>
+      </div>
+    </div>
+
+    <div class="photo-dont">
+      <h4>✕ Photography to avoid</h4>
+      <ul>
+        <li>Moody dark backgrounds</li>
+        <li>Cold blue or green tones</li>
+        <li>Heavy filters or oversaturation</li>
+        <li>Text overlays on product photos</li>
+        <li>Cluttered flat lays</li>
+        <li>Stock photography</li>
+        <li>Artificial backgrounds</li>
+        <li>Worm's-eye product angles</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:40px;padding:40px;background:var(--white);border:1px solid var(--cream-deep);">
+      <p class="section-label" style="margin-bottom:20px;">Instagram content pillars</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:var(--rose-pale);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:20px;">🥐</div>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:6px;">Product</p>
+          <p style="font-family:var(--font-sans);font-size:12px;color:var(--ink-soft);">Hero shots of the pastries — the star of the feed</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:var(--rose-pale);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:20px;">👩‍🍳</div>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:6px;">Process</p>
+          <p style="font-family:var(--font-sans);font-size:12px;color:var(--ink-soft);">Behind the scenes: mixing, baking, decorating</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:var(--rose-pale);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:20px;">🇫🇷</div>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:6px;">Story</p>
+          <p style="font-family:var(--font-sans);font-size:12px;color:var(--ink-soft);">French culture, recipes, the goûter tradition</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:var(--rose-pale);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:20px;">🎁</div>
+          <p style="font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:6px;">Gift</p>
+          <p style="font-family:var(--font-sans);font-size:12px;color:var(--ink-soft);">Orders, gift boxes, customer moments</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section id="applications">
+  <div class="container">
+    <p class="section-label">09 — Brand Applications</p>
+    <h1 class="chapter">The brand in the <em>world</em></h1>
+    <p class="chapter-intro">How the identity translates across packaging, social, and collateral — keeping every touchpoint cohesive.</p>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <div class="app-mockup">
+          <div class="ig-post">
+            <div class="ig-header">
+              <div class="ig-avatar">M</div>
+              <span class="ig-handle">mademoiselleinthekitchen</span>
+            </div>
+            <div class="ig-image"><span class="ig-image-inner">🥐</span></div>
+            <p class="ig-caption"><strong>mademoiselleinthekitchen</strong> There is something about a warm madeleine straight from the oven that no words can quite describe. Made fresh for your pickup date. DM to order. 🇫🇷</p>
+          </div>
+        </div>
+        <div class="app-info">
+          <h3>Instagram Post</h3>
+          <p>Warm photography, Cormorant body copy. Caption follows the 3-part formula: hook → story → invite.</p>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-mockup app-mockup-cream">
+          <div class="box-mockup">
+            <div class="box-mockup-ribbon"><span>Fait maison · Miami</span></div>
+            <div style="padding:16px;text-align:center;">
+              <p class="box-mockup-logo">Mademoiselle</p>
+              <p style="font-family:var(--font-display);font-style:italic;font-size:10px;color:var(--gold);margin:2px 0;">— ✦ —</p>
+              <p class="box-mockup-sub">in the kitchen</p>
+            </div>
+          </div>
+        </div>
+        <div class="app-info">
+          <h3>Gift Box / Packaging</h3>
+          <p>Cream base, rose ribbon with "Fait maison" detail. Logo centered. Gold foil stamp on lid for premium orders.</p>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-mockup">
+          <div class="card-mockup">
+            <div>
+              <p class="card-mockup-name">Mademoiselle</p>
+              <p class="card-mockup-title">in the Kitchen · Miami</p>
+            </div>
+            <div>
+              <p class="card-mockup-contact">@mademoiselleinthekitchen<br>mademoiselleinthekitchen.com<br>French Homemade Treats</p>
+            </div>
+          </div>
+        </div>
+        <div class="app-info">
+          <h3>Business Card</h3>
+          <p>Dark ink background, cream typography, gold shadow detail. Instagram handle and website prominent.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding:48px;background:var(--white);border:1px solid var(--cream-deep);display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;">
+      <div style="width:200px;padding:20px;border:1px solid var(--cream-deep);background:var(--rose-pale);text-align:center;position:relative;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--rose);"></div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:9px;color:var(--rose-deep);letter-spacing:0.12em;margin-bottom:8px;">Mademoiselle in the Kitchen</p>
+        <p style="font-family:var(--font-display);font-size:18px;color:var(--ink);margin-bottom:4px;">Madeleines</p>
+        <p style="font-family:var(--font-body);font-style:italic;font-size:12px;color:var(--ink-mid);margin-bottom:8px;">pistache chocolat</p>
+        <div style="height:1px;background:var(--cream-deep);margin:8px 0;"></div>
+        <p style="font-family:var(--font-sans);font-size:9px;color:var(--ink-soft);letter-spacing:0.1em;">12 pièces · Fait maison · Miami</p>
+        <p style="font-family:var(--font-sans);font-size:8px;color:var(--ink-soft);margin-top:4px;">Butter · Sugar · Flour · Eggs<br>Dark Chocolate · Pistachio</p>
+      </div>
+      <div>
+        <p class="section-label" style="margin-bottom:12px;">Product label spec</p>
+        <ul style="list-style:none;font-family:var(--font-sans);font-size:12px;color:var(--ink-mid);line-height:2.2;">
+          <li>— Brand name in Playfair Italic, small</li>
+          <li>— Product name in Playfair Display, large</li>
+          <li>— Flavor in Cormorant Italic, medium</li>
+          <li>— Details in Jost Light, small, muted</li>
+          <li>— Always include "Fait maison · Miami"</li>
+          <li>— Rose top bar as brand identifier</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section style="background:var(--rose);padding:80px 0;">
+  <div class="container" style="text-align:center;">
+    <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(22px,3vw,38px);color:var(--white);line-height:1.6;max-width:600px;margin:0 auto 24px;">
+      "A little taste of France,<br>made in Miami."
+    </p>
+    <div style="width:40px;height:1px;background:rgba(255,255,255,0.4);margin:0 auto;"></div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-logo">Mademoiselle in the Kitchen</p>
+  <p class="footer-sub">Miami · French Cottage Pâtisserie</p>
+  <p class="footer-note">Brand Book v2 — Confidential. All brand elements are proprietary to Mademoiselle in the Kitchen.</p>
+</footer>
+
+</body>
+</html>
