@@ -16,7 +16,7 @@
   justify-content: center;
   gap: 1.25rem;
   overflow: hidden;
-  animation: splash-exit 0.72s cubic-bezier(0.32, 0.72, 0, 1) 1.65s forwards;
+  animation: splash-exit 0.54s cubic-bezier(0.32, 0.72, 0, 1) 1.28s forwards;
 }
 
 #splash::before {
@@ -44,7 +44,7 @@
   width: 0;
   height: 1px;
   background: var(--gold);
-  animation: splash-rule-grow 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
+  animation: splash-rule-grow 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.54s both;
 }
 
 .splash-title {
@@ -54,7 +54,7 @@
   font-size: clamp(16px, 2.5vw, 22px);
   color: var(--cream-deep);
   letter-spacing: 0.02em;
-  animation: splash-rise 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.72s both;
+  animation: splash-rise 0.68s cubic-bezier(0.22, 1, 0.36, 1) 0.58s both;
 }
 
 @keyframes splash-rise {
@@ -69,8 +69,8 @@
 
 @keyframes splash-exit {
   from { opacity: 1; transform: translateY(0); }
-  55% { opacity: 0.3; }
-  to   { opacity: 0; transform: translateY(-16px) scale(0.99); pointer-events: none; }
+  45% { opacity: 0.22; }
+  to   { opacity: 0; transform: translateY(-14px) scale(0.992); pointer-events: none; }
 }
 
 @keyframes site-slide-in {
