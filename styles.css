@@ -6,6 +6,9 @@
 /* 0 — Splash screen
    ============================================================ */
 #splash {
+  --splash-exit-duration: 0.54s;
+  --splash-exit-delay: 1.28s;
+  --splash-pre-exit-lead: 0.16s;
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -16,7 +19,7 @@
   justify-content: center;
   gap: 1.25rem;
   overflow: hidden;
-  animation: splash-exit 0.54s cubic-bezier(0.32, 0.72, 0, 1) 1.28s forwards;
+  animation: splash-exit var(--splash-exit-duration) cubic-bezier(0.32, 0.72, 0, 1) var(--splash-exit-delay) forwards;
 }
 
 #splash::before {
@@ -57,16 +60,20 @@
   animation: splash-rise 0.68s cubic-bezier(0.22, 1, 0.36, 1) 0.58s both;
 }
 
+#splash.is-pre-exit .splash-logo,
+#splash.is-pre-exit .splash-rule,
+#splash.is-pre-exit .splash-title,
 #splash.is-exiting .splash-logo,
 #splash.is-exiting .splash-rule,
 #splash.is-exiting .splash-title {
   opacity: 0;
-  transform: translateY(-18px) scale(0.985);
-  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateY(-20px) scale(0.983);
+  transition: opacity 0.14s ease-out, transform 0.14s ease-out;
 }
 
+#splash.is-pre-exit .splash-rule,
 #splash.is-exiting .splash-rule {
-  transform: translateY(-14px);
+  transform: translateY(-16px);
 }
 
 @keyframes splash-rise {
