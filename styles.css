@@ -421,7 +421,7 @@ h3 {
   text-transform: uppercase;
   white-space: nowrap;
   box-shadow: 0 8px 18px rgba(197, 59, 59, 0.24);
-  transform: rotate(18deg);
+  transform: rotate(-18deg);
 }
 
 .menu-item p {
