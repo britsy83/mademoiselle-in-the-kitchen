@@ -57,6 +57,7 @@
   --font-sans:    'Jost', 'Avenir Next', 'Segoe UI', sans-serif;
   --intro-reveal-delay: 1180ms;
   --intro-reveal-duration: 1040ms;
+  --intro-reveal-ease: cubic-bezier(0.2, 0.9, 0.2, 1);
   --intro-hero-height: calc(100svh - 64px);
   --hero-rest-height: 420px;
 }
@@ -102,7 +103,7 @@ body.intro-pending.reveal-site .hero {
 body.intro-pending.reveal-site .menu-section,
 body.intro-pending.reveal-site .order,
 body.intro-pending.reveal-site .site-footer {
-  animation: site-slide-in var(--intro-reveal-duration) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: site-slide-in var(--intro-reveal-duration) var(--intro-reveal-ease) forwards;
 }
 
 body.intro-pending.reveal-site .order {
@@ -247,8 +248,8 @@ img { display: block; }
   display: flex;
   align-items: center;
   transition:
-    min-height var(--intro-reveal-duration) cubic-bezier(0.22, 1, 0.36, 1),
-    padding var(--intro-reveal-duration) cubic-bezier(0.22, 1, 0.36, 1);
+    min-height var(--intro-reveal-duration) var(--intro-reveal-ease),
+    padding var(--intro-reveal-duration) var(--intro-reveal-ease);
 }
 
 .hero::before {
