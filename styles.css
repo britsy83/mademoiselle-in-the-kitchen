@@ -403,24 +403,24 @@ h3 {
 
 .menu-badge {
   position: absolute;
-  top: 18px;
-  left: -14px;
+  top: 10px;
+  left: -18px;
   z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 154px;
-  padding: 0.38rem 0.85rem;
+  min-width: 124px;
+  padding: 0.28rem 0.65rem;
   border-radius: 999px;
   background: #c53b3b;
   color: var(--white);
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 8.5px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 10px 22px rgba(197, 59, 59, 0.28);
+  box-shadow: 0 8px 18px rgba(197, 59, 59, 0.24);
   transform: rotate(18deg);
 }
 
