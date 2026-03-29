@@ -3,73 +3,36 @@
    Brand identity: v2
    ============================================================ */
 
-/* 0 — Splash screen
+/* 0 — Intro motion
    ============================================================ */
-#splash {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: var(--ink);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  overflow: hidden;
-  animation: splash-exit 0.7s ease 2.2s forwards;
+@keyframes site-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(72px);
+  }
+  30% {
+    opacity: 0.16;
+    transform: translateY(62px);
+  }
+  62% {
+    opacity: 0.68;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-#splash::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image:
-    repeating-linear-gradient(45deg, var(--rose-light) 0, var(--rose-light) 1px, transparent 0, transparent 50%),
-    repeating-linear-gradient(-45deg, var(--rose-light) 0, var(--rose-light) 1px, transparent 0, transparent 50%);
-  background-size: 32px 32px;
-  pointer-events: none;
-}
-
-#splash[hidden] { display: none; }
-
-.splash-logo {
-  width: min(180px, 45vw);
-  height: auto;
-  border-radius: 50%;
-  animation: splash-rise 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both;
-}
-
-.splash-rule {
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  animation: splash-rule-grow 0.7s ease 0.7s both;
-}
-
-.splash-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(16px, 2.5vw, 22px);
-  color: var(--cream-deep);
-  letter-spacing: 0.02em;
-  animation: splash-rise 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.85s both;
-}
-
-@keyframes splash-rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes splash-rule-grow {
-  from { width: 0; opacity: 0; }
-  to   { width: 48px; opacity: 1; }
-}
-
-@keyframes splash-exit {
-  from { opacity: 1; }
-  to   { opacity: 0; pointer-events: none; }
+@keyframes hero-copy-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* 1 — Custom properties
