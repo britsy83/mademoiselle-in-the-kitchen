@@ -10,6 +10,14 @@
     opacity: 0;
     transform: translateY(72px);
   }
+  30% {
+    opacity: 0.16;
+    transform: translateY(62px);
+  }
+  62% {
+    opacity: 0.68;
+    transform: translateY(28px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
