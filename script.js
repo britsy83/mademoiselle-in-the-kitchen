@@ -1,26 +1,22 @@
-const splash = document.getElementById('splash');
-if (splash) {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const parseCssTimeToMs = (value) => {
+  const trimmed = value.trim();
+  if (!trimmed) return 0;
+  if (trimmed.endsWith('ms')) return Number.parseFloat(trimmed);
+  if (trimmed.endsWith('s')) return Number.parseFloat(trimmed) * 1000;
+  return Number.parseFloat(trimmed) || 0;
+};
 
-  if (prefersReducedMotion.matches) {
-    splash.hidden = true;
-  } else {
-    document.body.classList.add('has-splash-motion');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (prefersReducedMotion.matches) {
+  document.body.classList.add('reveal-site');
+} else {
+  const pageStyles = window.getComputedStyle(document.body);
+  const revealDelay = parseCssTimeToMs(pageStyles.getPropertyValue('--intro-reveal-delay'));
 
-    splash.addEventListener('animationstart', (e) => {
-      if (e.animationName === 'splash-exit') {
-        splash.classList.add('is-exiting');
-        document.body.classList.add('reveal-site');
-      }
-    });
-
-    splash.addEventListener('animationend', (e) => {
-      if (e.animationName === 'splash-exit') {
-        splash.hidden = true;
-        document.body.classList.add('splash-complete');
-      }
-    });
-  }
+  document.body.classList.add('has-intro-motion');
+  window.setTimeout(() => {
+    document.body.classList.add('reveal-site');
+  }, revealDelay);
 }
 
 const btn = document.querySelector('.nav-toggle');
