@@ -1,8 +1,15 @@
 const splash = document.getElementById('splash');
 if (splash) {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (prefersReducedMotion.matches) {
     splash.hidden = true;
   } else {
+    document.body.classList.add('has-splash-motion');
+    window.setTimeout(() => {
+      document.body.classList.add('reveal-site');
+    }, 1550);
+
     splash.addEventListener('animationend', (e) => {
       if (e.animationName === 'splash-exit') splash.hidden = true;
     });

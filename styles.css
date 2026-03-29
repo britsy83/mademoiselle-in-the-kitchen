@@ -72,6 +72,17 @@
   to   { opacity: 0; pointer-events: none; }
 }
 
+@keyframes site-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 1 — Custom properties
    ============================================================ */
 :root {
@@ -109,6 +120,27 @@ body {
   line-height: 1.7;
   color: var(--ink);
   background: var(--cream);
+}
+
+body.has-splash-motion .site-header,
+body.has-splash-motion main,
+body.has-splash-motion .site-footer {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+body.has-splash-motion.reveal-site .site-header,
+body.has-splash-motion.reveal-site main,
+body.has-splash-motion.reveal-site .site-footer {
+  animation: site-slide-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+body.has-splash-motion.reveal-site main {
+  animation-delay: 0.06s;
+}
+
+body.has-splash-motion.reveal-site .site-footer {
+  animation-delay: 0.12s;
 }
 
 a { color: inherit; }
