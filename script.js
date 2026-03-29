@@ -14,7 +14,10 @@ if (splash) {
     });
 
     splash.addEventListener('animationend', (e) => {
-      if (e.animationName === 'splash-exit') splash.hidden = true;
+      if (e.animationName === 'splash-exit') {
+        splash.hidden = true;
+        document.body.classList.add('splash-complete');
+      }
     });
   }
 }
