@@ -19,11 +19,11 @@
 @keyframes hero-copy-rise {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(28px) scale(0.985);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -70,38 +70,38 @@ body {
   background: var(--cream);
 }
 
-body.has-intro-motion .menu-section,
-body.has-intro-motion .order,
-body.has-intro-motion .site-footer {
+body.intro-pending .menu-section,
+body.intro-pending .order,
+body.intro-pending .site-footer {
   opacity: 0;
   transform: translateY(72px);
 }
 
-body.has-intro-motion .hero {
+body.intro-pending .hero {
   min-height: var(--intro-hero-height);
   padding: 120px 0 110px;
 }
 
-body.has-intro-motion .hero-inner {
-  animation: hero-copy-rise 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+body.intro-pending .hero-inner {
+  animation: hero-copy-rise 1.02s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
 }
 
-body.has-intro-motion.reveal-site .hero {
+body.intro-pending.reveal-site .hero {
   min-height: var(--hero-rest-height);
   padding: 88px 0 80px;
 }
 
-body.has-intro-motion.reveal-site .menu-section,
-body.has-intro-motion.reveal-site .order,
-body.has-intro-motion.reveal-site .site-footer {
+body.intro-pending.reveal-site .menu-section,
+body.intro-pending.reveal-site .order,
+body.intro-pending.reveal-site .site-footer {
   animation: site-slide-in var(--intro-reveal-duration) cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-body.has-intro-motion.reveal-site .order {
+body.intro-pending.reveal-site .order {
   animation-delay: 0.06s;
 }
 
-body.has-intro-motion.reveal-site .site-footer {
+body.intro-pending.reveal-site .site-footer {
   animation-delay: 0.12s;
 }
 

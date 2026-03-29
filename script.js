@@ -8,12 +8,12 @@ const parseCssTimeToMs = (value) => {
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (prefersReducedMotion.matches) {
+  document.body.classList.remove('intro-pending');
   document.body.classList.add('reveal-site');
 } else {
   const pageStyles = window.getComputedStyle(document.body);
   const revealDelay = parseCssTimeToMs(pageStyles.getPropertyValue('--intro-reveal-delay'));
 
-  document.body.classList.add('has-intro-motion');
   window.setTimeout(() => {
     document.body.classList.add('reveal-site');
   }, revealDelay);
