@@ -56,7 +56,7 @@
   --font-body:    'Cormorant Garamond', Georgia, serif;
   --font-sans:    'Jost', 'Avenir Next', 'Segoe UI', sans-serif;
   --intro-reveal-delay: 1180ms;
-  --intro-reveal-duration: 900ms;
+  --intro-reveal-duration: 1040ms;
   --intro-hero-height: calc(100svh - 64px);
   --hero-rest-height: 420px;
 }
