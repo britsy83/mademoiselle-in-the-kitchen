@@ -1,26 +1,11 @@
 const splash = document.getElementById('splash');
 if (splash) {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const parseCssTimeToMs = (value) => {
-    const trimmed = value.trim();
-    if (!trimmed) return 0;
-    if (trimmed.endsWith('ms')) return Number.parseFloat(trimmed);
-    if (trimmed.endsWith('s')) return Number.parseFloat(trimmed) * 1000;
-    return Number.parseFloat(trimmed) || 0;
-  };
 
   if (prefersReducedMotion.matches) {
     splash.hidden = true;
   } else {
-    const splashStyles = window.getComputedStyle(splash);
-    const preExitDelay =
-      parseCssTimeToMs(splashStyles.getPropertyValue('--splash-exit-delay')) -
-      parseCssTimeToMs(splashStyles.getPropertyValue('--splash-pre-exit-lead'));
-
     document.body.classList.add('has-splash-motion');
-    window.setTimeout(() => {
-      splash.classList.add('is-pre-exit');
-    }, Math.max(0, preExitDelay));
 
     splash.addEventListener('animationstart', (e) => {
       if (e.animationName === 'splash-exit') {
