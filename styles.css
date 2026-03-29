@@ -16,7 +16,7 @@
   justify-content: center;
   gap: 1.25rem;
   overflow: hidden;
-  animation: splash-exit 1.05s cubic-bezier(0.22, 1, 0.36, 1) 2.35s forwards;
+  animation: splash-exit 0.72s cubic-bezier(0.32, 0.72, 0, 1) 1.65s forwards;
 }
 
 #splash::before {
@@ -37,14 +37,14 @@
   width: min(180px, 45vw);
   height: auto;
   border-radius: 50%;
-  animation: splash-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  animation: splash-rise 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
 .splash-rule {
   width: 0;
   height: 1px;
   background: var(--gold);
-  animation: splash-rule-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+  animation: splash-rule-grow 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
 }
 
 .splash-title {
@@ -54,7 +54,7 @@
   font-size: clamp(16px, 2.5vw, 22px);
   color: var(--cream-deep);
   letter-spacing: 0.02em;
-  animation: splash-rise 1.05s cubic-bezier(0.22, 1, 0.36, 1) 1.05s both;
+  animation: splash-rise 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.72s both;
 }
 
 @keyframes splash-rise {
@@ -69,8 +69,8 @@
 
 @keyframes splash-exit {
   from { opacity: 1; transform: translateY(0); }
-  65% { opacity: 0.45; }
-  to   { opacity: 0; transform: translateY(-12px); pointer-events: none; }
+  55% { opacity: 0.3; }
+  to   { opacity: 0; transform: translateY(-16px) scale(0.99); pointer-events: none; }
 }
 
 @keyframes site-slide-in {
