@@ -122,20 +122,20 @@ body {
   background: var(--cream);
 }
 
-body.has-splash-motion .site-header,
-body.has-splash-motion main,
+body.has-splash-motion .menu-section,
+body.has-splash-motion .order,
 body.has-splash-motion .site-footer {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(72px);
 }
 
-body.has-splash-motion.reveal-site .site-header,
-body.has-splash-motion.reveal-site main,
+body.has-splash-motion.reveal-site .menu-section,
+body.has-splash-motion.reveal-site .order,
 body.has-splash-motion.reveal-site .site-footer {
-  animation: site-slide-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: site-slide-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-body.has-splash-motion.reveal-site main {
+body.has-splash-motion.reveal-site .order {
   animation-delay: 0.06s;
 }
 

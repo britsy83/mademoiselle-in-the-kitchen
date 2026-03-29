@@ -6,9 +6,12 @@ if (splash) {
     splash.hidden = true;
   } else {
     document.body.classList.add('has-splash-motion');
-    window.setTimeout(() => {
-      document.body.classList.add('reveal-site');
-    }, 1550);
+
+    splash.addEventListener('animationstart', (e) => {
+      if (e.animationName === 'splash-exit') {
+        document.body.classList.add('reveal-site');
+      }
+    });
 
     splash.addEventListener('animationend', (e) => {
       if (e.animationName === 'splash-exit') splash.hidden = true;
