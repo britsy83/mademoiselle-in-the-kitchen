@@ -9,6 +9,7 @@ if (splash) {
 
     splash.addEventListener('animationstart', (e) => {
       if (e.animationName === 'splash-exit') {
+        splash.classList.add('is-exiting');
         document.body.classList.add('reveal-site');
       }
     });
