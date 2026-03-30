@@ -42,19 +42,23 @@ Rules:
 
 # 2. Git Workflow (Mandatory)
 
-1. Do not modify `main` directly. 
-2. Create feature branch with an explicit name related to the task.
-3. Implement changes.
-4. Commit with clear message.
-5. Push branch to origin. Never push directly to `main`.
-6. Provide structured PR summary including:
-- What changed
-- Why
-- UX impact
-- SEO impact
-- Any notable performance considerations
-7. Instruct the user to create the PR manually in GitHub
-8. After the PR is merged, the feature branch will be deleted by the repository owner.
+1. Verify the user is on `main` branch. If not, switch to it with `git switch main`.
+2. Pull the latest code from GitHub with `git pull origin main` to ensure the local `main` is up to date.
+3. Create a feature branch with an explicit name related to the task with `git switch -c feature-branch`.
+4. Do not modify `main` directly. All changes must be implemented on the feature branch.
+5. Implement changes.
+6. Commit with clear message.
+7. Ask user if another task should be done on this branch. If yes, iterate through items 5, 6 and 7 until user has no more tasks for this feature branch.
+8. Push branch to origin. Never push directly to `main`.
+9. Create Pull Request: attempt using `gh pr create` if the `gh` CLI is available. If not installed, provide a structured PR summary for the user to open the PR manually in GitHub, including:
+   - What changed
+   - Why
+   - UX impact
+   - SEO impact
+   - Any notable performance considerations
+10. Switch the user back to `main` branch locally.
+11. Delete the feature branch locally.
+12. After the PR is merged, the remote feature branch will be deleted by the repository owner.
 
 ---
 
@@ -84,7 +88,7 @@ Must be compliant with brand-book.html
 - Updated files
 - Feature branch created
 - Branch pushed to GitHub
-- PR summary provided
-- User instructed to finish the Git workflow in GitHub by opening the PR
+- PR created with summary
+- User switched back to main branch locally and feature branch deleted locally
 
 ---
