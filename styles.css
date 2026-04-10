@@ -432,6 +432,10 @@ h3 {
   transform: rotate(-18deg);
 }
 
+.menu-item--hidden {
+  display: none;
+}
+
 .menu-item p {
   font-family: var(--font-body);
   font-size: 16px;
