@@ -43,6 +43,7 @@ Rules:
 # 2. Git Workflow (Mandatory)
 
 1. Verify the user is on `main` branch. If not, switch to it with `git switch main`.
+2. Remove dead references related to previously deleted remote branches with `git fetch --prune`. 
 2. Pull the latest code from GitHub with `git pull origin main` to ensure the local `main` is up to date.
 3. Create a feature branch with an explicit name related to the task with `git switch -c feature-branch`.
 4. Do not modify `main` directly. All changes must be implemented on the feature branch.
@@ -56,9 +57,10 @@ Rules:
    - UX impact
    - SEO impact
    - Any notable performance considerations
-10. Switch the user back to `main` branch locally.
-11. Delete the feature branch locally.
-12. After the PR is merged, the remote feature branch will be deleted by the repository owner.
+10. Once the PR merge has been confirmed by the user:
+   - Switch the user back to `main` branch locally
+   - Delete the feature branch locally
+11. After the PR is merged, the remote feature branch will be deleted by the repository owner.
 
 ---
 
