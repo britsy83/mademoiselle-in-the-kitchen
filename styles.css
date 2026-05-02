@@ -305,6 +305,28 @@ img { display: block; }
   max-width: 42ch;
 }
 
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.15rem;
+  border-radius: 999px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #c9837a 0%, #bf664e 100%);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(160, 77, 55, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(160, 77, 55, 0.28);
+  outline: none;
+}
+
 /* 6 — Section label
    ============================================================ */
 .section-label {
@@ -470,26 +492,58 @@ h3 {
 /* 9 — Order section
    ============================================================ */
 .order {
-  background: var(--rose-pale);
-  padding: 80px 0;
+  position: relative;
+  padding: 4.5rem 0;
+  background: transparent;
 }
 
-.order p {
-  font-family: var(--font-body);
-  font-size: 18px;
-  color: var(--ink-mid);
-  margin-bottom: 0.75rem;
-  max-width: 52ch;
+.order .eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  color: #c9837a;
 }
 
-.order a {
+.section-intro {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.section-intro p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.order-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2rem;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 246, 0.94), rgba(247, 227, 216, 0.9)),
+    var(--white);
+  border: 1px solid var(--cream-deep);
+  border-radius: 1.6rem;
+  box-shadow: 0 18px 40px rgba(74, 33, 18, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.order-steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+.order-steps li + li {
+  margin-top: 0.7rem;
+}
+
+.order-card a:not(.button) {
   color: var(--rose-deep);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s;
 }
-
-.order a:hover { color: var(--rose); }
 
 /* 10 — Footer
    ============================================================ */
@@ -576,7 +630,15 @@ h3 {
   .lede { font-size: 17px; }
 
   .menu-section { padding: 60px 0; }
-  .order { padding: 60px 0; }
+  .order { padding: 3.5rem 0; }
+
+  .order-card {
+    grid-template-columns: 1fr;
+  }
+
+  .order-card .button {
+    justify-self: start;
+  }
 
   .footer-row {
     flex-direction: column;
