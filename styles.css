@@ -649,8 +649,9 @@ h3 {
 }
 
 .field select {
-  color: var(--rose-deep);
-  border-color: rgba(155, 92, 85, 0.28);
+  background: var(--rose-deep);
+  color: var(--white);
+  border-color: var(--rose-deep);
 }
 
 .field textarea {
