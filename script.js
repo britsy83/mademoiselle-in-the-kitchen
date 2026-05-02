@@ -145,11 +145,16 @@ if (
     ].join('\n');
   };
 
+  const buildSmsHref = (message) => {
+    const encodedMessage = encodeURIComponent(message);
+    return `sms:${bakerPhoneNumber}&body=${encodedMessage}`;
+  };
+
   const syncOrderMessage = () => {
     const message = buildOrderMessage();
     orderMessage.textContent = message;
     if (sendOrderMessageLink instanceof HTMLAnchorElement) {
-      sendOrderMessageLink.href = `sms:${bakerPhoneNumber}?body=${encodeURIComponent(message)}`;
+      sendOrderMessageLink.href = buildSmsHref(message);
     }
   };
 
@@ -210,9 +215,12 @@ if (
   orderForm.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!(orderForm instanceof HTMLFormElement) || !orderForm.reportValidity()) return;
-    syncOrderMessage();
+    const message = buildOrderMessage();
+    orderMessage.textContent = message;
     if (sendOrderMessageLink instanceof HTMLAnchorElement) {
-      window.location.href = sendOrderMessageLink.href;
+      const smsHref = buildSmsHref(message);
+      sendOrderMessageLink.href = smsHref;
+      window.location.href = smsHref;
     }
   });
 
