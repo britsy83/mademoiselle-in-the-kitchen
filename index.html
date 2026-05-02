@@ -103,6 +103,11 @@
               <button class="order-add" type="button" id="add-order-item">Add another item</button>
 
               <div class="order-form-grid">
+                <label class="field field-full">
+                  <span>Name</span>
+                  <input id="customer-name" name="customer-name" type="text" autocomplete="name" placeholder="Full name" required>
+                </label>
+
                 <label class="field">
                   <span>Pickup date</span>
                   <input id="pickup-date" name="pickup-date" type="date" required>
@@ -126,12 +131,12 @@
 
                 <label class="field field-full">
                   <span>Notes for the baker</span>
-                  <textarea id="order-notes" name="order-notes" rows="5" placeholder="Allergies, preferred decoration details, special instructions, or anything else helpful."></textarea>
+                  <textarea id="order-notes" name="order-notes" rows="5" placeholder="Allergies, preferred decoration details, special instructions, or anything else helpful." required></textarea>
                 </label>
               </div>
 
               <div class="order-actions">
-                <button class="button" type="submit">Prepare text message</button>
+                <button class="button" id="prepare-order-message" type="submit" disabled aria-disabled="true">Prepare text message</button>
                 <button class="button button-secondary" type="button" id="copy-order-message">Copy order details</button>
               </div>
             </form>
@@ -142,6 +147,7 @@
             <p class="order-summary-intro">This message updates as the form is filled out and is prepared for the baker at +1 (786) 825-6513.</p>
             <pre id="order-message" class="order-message">Order request
 
+- Add your name
 - Add your pastries
 - Choose your pickup date and time
 - Add your phone number

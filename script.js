@@ -29,6 +29,7 @@ const orderMessage = document.getElementById('order-message');
 const copyOrderMessageButton = document.getElementById('copy-order-message');
 const orderItemTemplate = document.getElementById('order-item-template');
 const sendOrderMessageLink = document.getElementById('send-order-message');
+const prepareOrderMessageButton = document.getElementById('prepare-order-message');
 
 if (year) year.textContent = new Date().getFullYear();
 if (btn && nav) {
@@ -62,6 +63,7 @@ if (
   orderItemTemplate instanceof HTMLTemplateElement
 ) {
   const bakerPhoneNumber = '+17868256513';
+  const customerNameInput = document.getElementById('customer-name');
   const pickupDateInput = document.getElementById('pickup-date');
   const pickupTimeInput = document.getElementById('pickup-time');
   const customerPhoneInput = document.getElementById('customer-phone');
@@ -112,6 +114,46 @@ if (
     });
   };
 
+  const setSendButtonState = (isEnabled) => {
+    if (!(prepareOrderMessageButton instanceof HTMLButtonElement)) return;
+    prepareOrderMessageButton.disabled = !isEnabled;
+    prepareOrderMessageButton.setAttribute('aria-disabled', String(!isEnabled));
+  };
+
+  const isFormReady = () => {
+    const rows = Array.from(orderItems.querySelectorAll('.order-item-row'));
+    if (!rows.length) return false;
+
+    const itemsReady = rows.every((row) => {
+      const itemSelect = row.querySelector('.order-item-select');
+      const quantitySelect = row.querySelector('.order-quantity-select');
+      return (
+        itemSelect instanceof HTMLSelectElement &&
+        quantitySelect instanceof HTMLSelectElement &&
+        Boolean(itemSelect.value) &&
+        Boolean(quantitySelect.value)
+      );
+    });
+
+    const nameReady =
+      customerNameInput instanceof HTMLInputElement &&
+      customerNameInput.value.trim().length > 0;
+    const pickupDateReady =
+      pickupDateInput instanceof HTMLInputElement &&
+      pickupDateInput.value.trim().length > 0;
+    const pickupTimeReady =
+      pickupTimeInput instanceof HTMLSelectElement &&
+      pickupTimeInput.value.trim().length > 0;
+    const phoneReady =
+      customerPhoneInput instanceof HTMLInputElement &&
+      customerPhoneInput.value.trim().length > 0;
+    const notesReady =
+      orderNotesInput instanceof HTMLTextAreaElement &&
+      orderNotesInput.value.trim().length > 0;
+
+    return itemsReady && nameReady && pickupDateReady && pickupTimeReady && phoneReady && notesReady;
+  };
+
   const buildOrderMessage = () => {
     const selectedItems = Array.from(orderItems.querySelectorAll('.order-item-row'))
       .map((row) => {
@@ -127,11 +169,14 @@ if (
 
     const pickupDateValue = pickupDateInput instanceof HTMLInputElement ? pickupDateInput.value : '';
     const pickupTimeValue = pickupTimeInput instanceof HTMLSelectElement ? pickupTimeInput.value : '';
+    const nameValue = customerNameInput instanceof HTMLInputElement ? customerNameInput.value.trim() : '';
     const phoneValue = customerPhoneInput instanceof HTMLInputElement ? customerPhoneInput.value.trim() : '';
     const notesValue = orderNotesInput instanceof HTMLTextAreaElement ? orderNotesInput.value.trim() : '';
 
     return [
       'Order request',
+      '',
+      `Name: ${nameValue || 'Name not added'}`,
       '',
       'Items:',
       ...(selectedItems.length ? selectedItems : ['- Add your pastries']),
@@ -164,6 +209,7 @@ if (
     if (sendOrderMessageLink instanceof HTMLAnchorElement) {
       sendOrderMessageLink.href = buildSmsHref(message);
     }
+    setSendButtonState(isFormReady());
   };
 
   const addOrderItemRow = () => {
@@ -204,6 +250,10 @@ if (
   if (pickupDateInput instanceof HTMLInputElement) {
     pickupDateInput.min = localDateIso;
     pickupDateInput.addEventListener('input', syncOrderMessage);
+  }
+
+  if (customerNameInput instanceof HTMLInputElement) {
+    customerNameInput.addEventListener('input', syncOrderMessage);
   }
 
   if (pickupTimeInput instanceof HTMLSelectElement) {
