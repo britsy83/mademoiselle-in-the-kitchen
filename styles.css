@@ -649,9 +649,14 @@ h3 {
 }
 
 .field select {
-  background: var(--gold-light);
-  color: var(--ink);
-  border-color: var(--gold-light);
+  background: var(--white);
+  color: var(--rose-deep);
+  border-color: var(--cream-deep);
+}
+
+.field select option {
+  color: var(--rose-deep);
+  background: var(--white);
 }
 
 .field textarea {
