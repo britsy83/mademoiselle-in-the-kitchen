@@ -1,7 +1,7 @@
 # Mademoiselle in the kitchen website
 
 Repository:  
-`git@github.com:britsy83/mademoiselle-in-the-kitchen.git`
+`git@github.com:britsy204/mademoiselle-in-the-kitchen.git`
 
 Production branch: `main`  
 All changes must go through feature branches and Pull Requests into `main`.
