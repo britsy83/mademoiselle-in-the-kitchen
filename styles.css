@@ -648,6 +648,11 @@ h3 {
   font: inherit;
 }
 
+.field select {
+  color: var(--rose-deep);
+  border-color: rgba(155, 92, 85, 0.28);
+}
+
 .field textarea {
   min-height: 8.5rem;
   resize: vertical;
