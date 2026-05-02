@@ -79,19 +79,73 @@
       </div>
     </section>
 
-    <section class="order container reveal" id="order" aria-labelledby="order-title">
-      <div class="order-card">
-        <div class="section-intro">
-          <p class="eyebrow">How To Order</p>
-          <h2 id="order-title">Simple, personal, and easy to arrange.</h2>
-          <p>Send your order through Instagram with the pastries you want, how many sets you need, and the pickup date you have in mind.</p>
+    <section class="order" id="order" aria-labelledby="order-title">
+      <div class="container">
+        <div class="order-head">
+          <p class="section-label">Order Online</p>
+          <h2 id="order-title">Build your order request here.</h2>
+          <p>Choose what you want, how many sets you need, your pickup window, and any notes for the baker. Your phone number will be included in the final request in case the baker needs to contact you.</p>
         </div>
-        <ol class="order-steps">
-          <li>Choose your favorites from the menu.</li>
-          <li>Message <a href="https://instagram.com/mademoiselleinthekitchen/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile">@mademoiselleinthekitchen</a>.</li>
-          <li>Share item names, quantities, and your requested pickup date.</li>
-        </ol>
-        <a class="button" href="https://instagram.com/mademoiselleinthekitchen/" target="_blank" rel="noopener noreferrer">Start your order</a>
+
+        <div class="order-grid">
+          <div class="order-panel">
+            <form id="order-form" class="order-form" novalidate>
+              <div class="order-items-heading">
+                <h3>Your pastries</h3>
+                <p>Add one or more items to the order request.</p>
+              </div>
+
+              <div id="order-items" class="order-items"></div>
+
+              <button class="order-add" type="button" id="add-order-item">Add another item</button>
+
+              <div class="order-form-grid">
+                <label class="field">
+                  <span>Pickup date</span>
+                  <input id="pickup-date" name="pickup-date" type="date" required>
+                </label>
+
+                <label class="field">
+                  <span>Pickup time</span>
+                  <select id="pickup-time" name="pickup-time" required>
+                    <option value="">Select a pickup window</option>
+                    <option>Morning pickup (9:00 AM - 11:00 AM)</option>
+                    <option>Midday pickup (11:00 AM - 1:00 PM)</option>
+                    <option>Afternoon pickup (1:00 PM - 4:00 PM)</option>
+                    <option>Evening pickup (4:00 PM - 7:00 PM)</option>
+                  </select>
+                </label>
+
+                <label class="field field-full">
+                  <span>Phone number</span>
+                  <input id="customer-phone" name="customer-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" required>
+                </label>
+
+                <label class="field field-full">
+                  <span>Notes for the baker</span>
+                  <textarea id="order-notes" name="order-notes" rows="5" placeholder="Allergies, preferred decoration details, special instructions, or anything else helpful."></textarea>
+                </label>
+              </div>
+
+              <div class="order-actions">
+                <button class="button" type="submit">Prepare order message</button>
+                <button class="button button-secondary" type="button" id="copy-order-message">Copy order details</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="order-summary" aria-live="polite">
+            <p class="order-summary-label">Ready to send</p>
+            <p class="order-summary-intro">This message updates as the form is filled out.</p>
+            <pre id="order-message" class="order-message">Order request
+
+- Add your pastries
+- Choose your pickup date and time
+- Add your phone number
+- Include any notes for the baker</pre>
+            <a class="order-link" href="https://instagram.com/mademoiselleinthekitchen/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile">Open Instagram profile</a>
+          </aside>
+        </div>
       </div>
     </section>
   </main>
@@ -103,6 +157,31 @@
     </div>
   </footer>
 
+  <template id="order-item-template">
+    <div class="order-item-row">
+      <label class="field">
+        <span>Pastry</span>
+        <select class="order-item-select" name="order-item" required></select>
+      </label>
+      <label class="field field-quantity">
+        <span>Quantity</span>
+        <select class="order-quantity-select" name="order-quantity" required>
+          <option value="">Qty</option>
+          <option value="1 set">1 set</option>
+          <option value="2 sets">2 sets</option>
+          <option value="3 sets">3 sets</option>
+          <option value="4 sets">4 sets</option>
+          <option value="5 sets">5 sets</option>
+          <option value="6 sets">6 sets</option>
+          <option value="7 sets">7 sets</option>
+          <option value="8 sets">8 sets</option>
+          <option value="9 sets">9 sets</option>
+          <option value="10 sets">10 sets</option>
+        </select>
+      </label>
+      <button class="order-remove" type="button" aria-label="Remove item">Remove</button>
+    </div>
+  </template>
   <script src="script.js"></script>
 </body>
 </html>
