@@ -126,13 +126,19 @@
 
                 <label class="field">
                   <span>Pickup time</span>
-                  <select id="pickup-time" name="pickup-time" required>
-                    <option value="">Select a pickup window</option>
-                    <option>Morning pickup (9:00 AM - 11:00 AM)</option>
-                    <option>Midday pickup (11:00 AM - 1:00 PM)</option>
-                    <option>Afternoon pickup (1:00 PM - 4:00 PM)</option>
-                    <option>Evening pickup (4:00 PM - 7:00 PM)</option>
-                  </select>
+                  <div class="custom-select" data-placeholder="Select a pickup window">
+                    <input id="pickup-time" class="custom-select__input" name="pickup-time" type="hidden">
+                    <button class="custom-select__trigger" type="button" aria-expanded="false">
+                      <span class="custom-select__label">Select a pickup window</span>
+                      <span class="custom-select__caret" aria-hidden="true"></span>
+                    </button>
+                    <div class="custom-select__menu" role="listbox">
+                      <button class="custom-select__option" type="button" data-value="Morning pickup (9:00 AM - 11:00 AM)">Morning pickup (9:00 AM - 11:00 AM)</button>
+                      <button class="custom-select__option" type="button" data-value="Midday pickup (11:00 AM - 1:00 PM)">Midday pickup (11:00 AM - 1:00 PM)</button>
+                      <button class="custom-select__option" type="button" data-value="Afternoon pickup (1:00 PM - 4:00 PM)">Afternoon pickup (1:00 PM - 4:00 PM)</button>
+                      <button class="custom-select__option" type="button" data-value="Evening pickup (4:00 PM - 7:00 PM)">Evening pickup (4:00 PM - 7:00 PM)</button>
+                    </div>
+                  </div>
                 </label>
 
                 <label class="field field-full">
@@ -180,23 +186,36 @@
     <div class="order-item-row">
       <label class="field">
         <span>Pastry</span>
-        <select class="order-item-select" name="order-item" required></select>
+        <div class="custom-select order-item-select" data-placeholder="Choose an item">
+          <input class="custom-select__input" name="order-item" type="hidden">
+          <button class="custom-select__trigger" type="button" aria-expanded="false">
+            <span class="custom-select__label">Choose an item</span>
+            <span class="custom-select__caret" aria-hidden="true"></span>
+          </button>
+          <div class="custom-select__menu" role="listbox"></div>
+        </div>
       </label>
       <label class="field field-quantity">
         <span>Quantity</span>
-        <select class="order-quantity-select" name="order-quantity" required>
-          <option value="">Qty</option>
-          <option value="1 set">1 set</option>
-          <option value="2 sets">2 sets</option>
-          <option value="3 sets">3 sets</option>
-          <option value="4 sets">4 sets</option>
-          <option value="5 sets">5 sets</option>
-          <option value="6 sets">6 sets</option>
-          <option value="7 sets">7 sets</option>
-          <option value="8 sets">8 sets</option>
-          <option value="9 sets">9 sets</option>
-          <option value="10 sets">10 sets</option>
-        </select>
+        <div class="custom-select order-quantity-select" data-placeholder="Qty">
+          <input class="custom-select__input" name="order-quantity" type="hidden">
+          <button class="custom-select__trigger" type="button" aria-expanded="false">
+            <span class="custom-select__label">Qty</span>
+            <span class="custom-select__caret" aria-hidden="true"></span>
+          </button>
+          <div class="custom-select__menu" role="listbox">
+            <button class="custom-select__option" type="button" data-value="1 set">1 set</button>
+            <button class="custom-select__option" type="button" data-value="2 sets">2 sets</button>
+            <button class="custom-select__option" type="button" data-value="3 sets">3 sets</button>
+            <button class="custom-select__option" type="button" data-value="4 sets">4 sets</button>
+            <button class="custom-select__option" type="button" data-value="5 sets">5 sets</button>
+            <button class="custom-select__option" type="button" data-value="6 sets">6 sets</button>
+            <button class="custom-select__option" type="button" data-value="7 sets">7 sets</button>
+            <button class="custom-select__option" type="button" data-value="8 sets">8 sets</button>
+            <button class="custom-select__option" type="button" data-value="9 sets">9 sets</button>
+            <button class="custom-select__option" type="button" data-value="10 sets">10 sets</button>
+          </div>
+        </div>
       </label>
       <button class="order-remove" type="button" aria-label="Remove item">Remove</button>
     </div>

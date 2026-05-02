@@ -68,6 +68,7 @@ if (
   const pickupTimeInput = document.getElementById('pickup-time');
   const customerPhoneInput = document.getElementById('customer-phone');
   const orderNotesInput = document.getElementById('order-notes');
+  const customSelects = new Set();
 
   const visibleMenuItems = Array.from(
     document.querySelectorAll('.menu-item:not(.menu-item--hidden)'),
@@ -79,16 +80,65 @@ if (
     })
     .filter((item) => item.name);
 
-  const createItemOptionMarkup = () => {
-    const placeholder = '<option value="">Choose an item</option>';
-    const options = visibleMenuItems
+  const createItemOptionMarkup = () => visibleMenuItems
       .map(({ name, price }) => {
         const label = price ? `${name} — ${price}` : name;
-        return `<option value="${name}">${label}</option>`;
+        return `<button class="custom-select__option" type="button" data-value="${name}">${label}</button>`;
       })
       .join('');
+  
+  const closeCustomSelect = (customSelect) => {
+    customSelect.classList.remove('is-open');
+    const trigger = customSelect.querySelector('.custom-select__trigger');
+    if (trigger instanceof HTMLButtonElement) {
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+  };
 
-    return `${placeholder}${options}`;
+  const syncCustomSelectUi = (customSelect) => {
+    const input = customSelect.querySelector('.custom-select__input');
+    const label = customSelect.querySelector('.custom-select__label');
+    const options = Array.from(customSelect.querySelectorAll('.custom-select__option'));
+    if (!(input instanceof HTMLInputElement) || !(label instanceof HTMLElement)) return;
+
+    const selectedOption = options.find((option) => option.dataset.value === input.value);
+    options.forEach((option) => {
+      option.classList.toggle('is-selected', option === selectedOption);
+    });
+
+    label.textContent = selectedOption?.textContent?.trim() || customSelect.dataset.placeholder || '';
+  };
+
+  const initializeCustomSelect = (customSelect) => {
+    if (!(customSelect instanceof HTMLElement) || customSelects.has(customSelect)) return;
+
+    const input = customSelect.querySelector('.custom-select__input');
+    const trigger = customSelect.querySelector('.custom-select__trigger');
+    const options = Array.from(customSelect.querySelectorAll('.custom-select__option'));
+
+    if (!(input instanceof HTMLInputElement) || !(trigger instanceof HTMLButtonElement) || !options.length) return;
+
+    customSelects.add(customSelect);
+
+    trigger.addEventListener('click', () => {
+      const isOpen = customSelect.classList.contains('is-open');
+      customSelects.forEach((selectNode) => closeCustomSelect(selectNode));
+      if (!isOpen) {
+        customSelect.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    options.forEach((option) => {
+      option.addEventListener('click', () => {
+        input.value = option.dataset.value || '';
+        syncCustomSelectUi(customSelect);
+        closeCustomSelect(customSelect);
+        syncOrderMessage();
+      });
+    });
+
+    syncCustomSelectUi(customSelect);
   };
 
   const updateRemoveButtons = () => {
@@ -125,11 +175,11 @@ if (
     if (!rows.length) return false;
 
     const itemsReady = rows.every((row) => {
-      const itemSelect = row.querySelector('.order-item-select');
-      const quantitySelect = row.querySelector('.order-quantity-select');
+      const itemSelect = row.querySelector('.order-item-select .custom-select__input');
+      const quantitySelect = row.querySelector('.order-quantity-select .custom-select__input');
       return (
-        itemSelect instanceof HTMLSelectElement &&
-        quantitySelect instanceof HTMLSelectElement &&
+        itemSelect instanceof HTMLInputElement &&
+        quantitySelect instanceof HTMLInputElement &&
         Boolean(itemSelect.value) &&
         Boolean(quantitySelect.value)
       );
@@ -145,7 +195,7 @@ if (
       pickupDateInput instanceof HTMLInputElement &&
       pickupDateInput.value.trim().length > 0;
     const pickupTimeReady =
-      pickupTimeInput instanceof HTMLSelectElement &&
+      pickupTimeInput instanceof HTMLInputElement &&
       pickupTimeInput.value.trim().length > 0;
     const phoneReady =
       customerPhoneInput instanceof HTMLInputElement &&
@@ -160,9 +210,9 @@ if (
   const buildOrderMessage = () => {
     const selectedItems = Array.from(orderItems.querySelectorAll('.order-item-row'))
       .map((row) => {
-        const itemSelect = row.querySelector('.order-item-select');
-        const quantitySelect = row.querySelector('.order-quantity-select');
-        if (!(itemSelect instanceof HTMLSelectElement) || !(quantitySelect instanceof HTMLSelectElement)) {
+        const itemSelect = row.querySelector('.order-item-select .custom-select__input');
+        const quantitySelect = row.querySelector('.order-quantity-select .custom-select__input');
+        if (!(itemSelect instanceof HTMLInputElement) || !(quantitySelect instanceof HTMLInputElement)) {
           return null;
         }
         if (!itemSelect.value && !quantitySelect.value) return null;
@@ -171,7 +221,7 @@ if (
       .filter(Boolean);
 
     const pickupDateValue = pickupDateInput instanceof HTMLInputElement ? pickupDateInput.value : '';
-    const pickupTimeValue = pickupTimeInput instanceof HTMLSelectElement ? pickupTimeInput.value : '';
+    const pickupTimeValue = pickupTimeInput instanceof HTMLInputElement ? pickupTimeInput.value : '';
     const firstNameValue =
       customerFirstNameInput instanceof HTMLInputElement ? customerFirstNameInput.value.trim() : '';
     const lastNameValue =
@@ -221,18 +271,17 @@ if (
     const row = fragment.querySelector('.order-item-row');
     if (!(row instanceof HTMLElement)) return;
 
+    const itemSelectMenu = row.querySelector('.order-item-select .custom-select__menu');
     const itemSelect = row.querySelector('.order-item-select');
     const quantitySelect = row.querySelector('.order-quantity-select');
     const removeButton = row.querySelector('.order-remove');
 
-    if (itemSelect instanceof HTMLSelectElement) {
-      itemSelect.innerHTML = createItemOptionMarkup();
-      itemSelect.addEventListener('change', syncOrderMessage);
+    if (itemSelectMenu instanceof HTMLElement) {
+      itemSelectMenu.innerHTML = createItemOptionMarkup();
     }
 
-    if (quantitySelect instanceof HTMLSelectElement) {
-      quantitySelect.addEventListener('change', syncOrderMessage);
-    }
+    initializeCustomSelect(itemSelect);
+    initializeCustomSelect(quantitySelect);
 
     if (removeButton instanceof HTMLButtonElement) {
       removeButton.addEventListener('click', () => {
@@ -264,8 +313,12 @@ if (
     customerLastNameInput.addEventListener('input', syncOrderMessage);
   }
 
-  if (pickupTimeInput instanceof HTMLSelectElement) {
-    pickupTimeInput.addEventListener('change', syncOrderMessage);
+  const pickupTimeSelect = pickupTimeInput instanceof HTMLInputElement
+    ? pickupTimeInput.closest('.custom-select')
+    : null;
+
+  if (pickupTimeSelect instanceof HTMLElement) {
+    initializeCustomSelect(pickupTimeSelect);
   }
 
   if (customerPhoneInput instanceof HTMLInputElement) {
@@ -277,6 +330,21 @@ if (
   }
 
   addOrderItemButton.addEventListener('click', addOrderItemRow);
+
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Node)) return;
+    customSelects.forEach((customSelect) => {
+      if (!customSelect.contains(event.target)) {
+        closeCustomSelect(customSelect);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      customSelects.forEach((customSelect) => closeCustomSelect(customSelect));
+    }
+  });
 
   orderForm.addEventListener('submit', (event) => {
     event.preventDefault();
