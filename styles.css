@@ -529,6 +529,18 @@ h3 {
   max-width: 50ch;
 }
 
+.order-intro-steps {
+  margin: 0;
+  padding-left: 1.4rem;
+  max-width: 44rem;
+  color: var(--ink-mid);
+}
+
+.order-intro-steps li {
+  margin-top: 0.4rem;
+  padding-left: 0.2rem;
+}
+
 .order-notice {
   margin-top: 1.25rem;
   max-width: 56ch;
