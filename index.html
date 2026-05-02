@@ -87,9 +87,9 @@
           <ol class="order-intro-steps">
             <li>Pick your favorites.</li>
             <li>Choose the number of sets you need.</li>
-            <li>Choose the pickup date and time window that works best for you.</li>
+            <li>Select the pickup date and time window that works best for you.</li>
             <li>Add any notes for the baker.</li>
-            <li>Add your phone number so Mademoiselle in the Kitchen can contact you.</li>
+            <li>Add your phone number.</li>
           </ol>
           <div class="order-notice" role="note" aria-label="Ordering request notice">
             <p><strong>Please note:</strong> Mademoiselle in the Kitchen will contact you to confirm your order.</p>
@@ -109,9 +109,14 @@
               <button class="order-add" type="button" id="add-order-item">Add another item</button>
 
               <div class="order-form-grid">
-                <label class="field field-full">
-                  <span>Name</span>
-                  <input id="customer-name" name="customer-name" type="text" autocomplete="name" placeholder="Full name" required>
+                <label class="field">
+                  <span>First name</span>
+                  <input id="customer-first-name" name="customer-first-name" type="text" autocomplete="given-name" placeholder="First name" required>
+                </label>
+
+                <label class="field">
+                  <span>Last name</span>
+                  <input id="customer-last-name" name="customer-last-name" type="text" autocomplete="family-name" placeholder="Last name" required>
                 </label>
 
                 <label class="field">
@@ -150,7 +155,7 @@
 
           <aside class="order-summary" aria-live="polite">
             <p class="order-summary-label">Ready to send</p>
-            <p class="order-summary-intro">This message updates as the form is filled out and is prepared for the baker at +1 (786) 825-6513.</p>
+            <p class="order-summary-intro">This message updates as the form is filled out and is prepared for the baker.</p>
             <pre id="order-message" class="order-message">Order request
 
 - Add your name

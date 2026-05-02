@@ -62,7 +62,8 @@ if (
   orderItemTemplate instanceof HTMLTemplateElement
 ) {
   const bakerPhoneNumber = '+17868256513';
-  const customerNameInput = document.getElementById('customer-name');
+  const customerFirstNameInput = document.getElementById('customer-first-name');
+  const customerLastNameInput = document.getElementById('customer-last-name');
   const pickupDateInput = document.getElementById('pickup-date');
   const pickupTimeInput = document.getElementById('pickup-time');
   const customerPhoneInput = document.getElementById('customer-phone');
@@ -134,9 +135,12 @@ if (
       );
     });
 
-    const nameReady =
-      customerNameInput instanceof HTMLInputElement &&
-      customerNameInput.value.trim().length > 0;
+    const firstNameReady =
+      customerFirstNameInput instanceof HTMLInputElement &&
+      customerFirstNameInput.value.trim().length > 0;
+    const lastNameReady =
+      customerLastNameInput instanceof HTMLInputElement &&
+      customerLastNameInput.value.trim().length > 0;
     const pickupDateReady =
       pickupDateInput instanceof HTMLInputElement &&
       pickupDateInput.value.trim().length > 0;
@@ -150,7 +154,7 @@ if (
       orderNotesInput instanceof HTMLTextAreaElement &&
       orderNotesInput.value.trim().length > 0;
 
-    return itemsReady && nameReady && pickupDateReady && pickupTimeReady && phoneReady && notesReady;
+    return itemsReady && firstNameReady && lastNameReady && pickupDateReady && pickupTimeReady && phoneReady && notesReady;
   };
 
   const buildOrderMessage = () => {
@@ -168,14 +172,18 @@ if (
 
     const pickupDateValue = pickupDateInput instanceof HTMLInputElement ? pickupDateInput.value : '';
     const pickupTimeValue = pickupTimeInput instanceof HTMLSelectElement ? pickupTimeInput.value : '';
-    const nameValue = customerNameInput instanceof HTMLInputElement ? customerNameInput.value.trim() : '';
+    const firstNameValue =
+      customerFirstNameInput instanceof HTMLInputElement ? customerFirstNameInput.value.trim() : '';
+    const lastNameValue =
+      customerLastNameInput instanceof HTMLInputElement ? customerLastNameInput.value.trim() : '';
+    const fullNameValue = [firstNameValue, lastNameValue].filter(Boolean).join(' ');
     const phoneValue = customerPhoneInput instanceof HTMLInputElement ? customerPhoneInput.value.trim() : '';
     const notesValue = orderNotesInput instanceof HTMLTextAreaElement ? orderNotesInput.value.trim() : '';
 
     return [
       'Order request',
       '',
-      `Name: ${nameValue || 'Name not added'}`,
+      `Name: ${fullNameValue || 'Name not added'}`,
       '',
       'Items:',
       ...(selectedItems.length ? selectedItems : ['- Add your pastries']),
@@ -248,8 +256,12 @@ if (
     pickupDateInput.addEventListener('input', syncOrderMessage);
   }
 
-  if (customerNameInput instanceof HTMLInputElement) {
-    customerNameInput.addEventListener('input', syncOrderMessage);
+  if (customerFirstNameInput instanceof HTMLInputElement) {
+    customerFirstNameInput.addEventListener('input', syncOrderMessage);
+  }
+
+  if (customerLastNameInput instanceof HTMLInputElement) {
+    customerLastNameInput.addEventListener('input', syncOrderMessage);
   }
 
   if (pickupTimeInput instanceof HTMLSelectElement) {
