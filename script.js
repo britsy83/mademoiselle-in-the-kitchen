@@ -28,6 +28,7 @@ const addOrderItemButton = document.getElementById('add-order-item');
 const orderMessage = document.getElementById('order-message');
 const copyOrderMessageButton = document.getElementById('copy-order-message');
 const orderItemTemplate = document.getElementById('order-item-template');
+const sendOrderMessageLink = document.getElementById('send-order-message');
 
 if (year) year.textContent = new Date().getFullYear();
 if (btn && nav) {
@@ -60,6 +61,7 @@ if (
   addOrderItemButton &&
   orderItemTemplate instanceof HTMLTemplateElement
 ) {
+  const bakerPhoneNumber = '+17868256513';
   const pickupDateInput = document.getElementById('pickup-date');
   const pickupTimeInput = document.getElementById('pickup-time');
   const customerPhoneInput = document.getElementById('customer-phone');
@@ -144,7 +146,11 @@ if (
   };
 
   const syncOrderMessage = () => {
-    orderMessage.textContent = buildOrderMessage();
+    const message = buildOrderMessage();
+    orderMessage.textContent = message;
+    if (sendOrderMessageLink instanceof HTMLAnchorElement) {
+      sendOrderMessageLink.href = `sms:${bakerPhoneNumber}?body=${encodeURIComponent(message)}`;
+    }
   };
 
   const addOrderItemRow = () => {
@@ -205,6 +211,9 @@ if (
     event.preventDefault();
     if (!(orderForm instanceof HTMLFormElement) || !orderForm.reportValidity()) return;
     syncOrderMessage();
+    if (sendOrderMessageLink instanceof HTMLAnchorElement) {
+      window.location.href = sendOrderMessageLink.href;
+    }
   });
 
   if (copyOrderMessageButton instanceof HTMLButtonElement) {
