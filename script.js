@@ -28,7 +28,6 @@ const addOrderItemButton = document.getElementById('add-order-item');
 const orderMessage = document.getElementById('order-message');
 const copyOrderMessageButton = document.getElementById('copy-order-message');
 const orderItemTemplate = document.getElementById('order-item-template');
-const sendOrderMessageLink = document.getElementById('send-order-message');
 const prepareOrderMessageButton = document.getElementById('prepare-order-message');
 
 if (year) year.textContent = new Date().getFullYear();
@@ -206,9 +205,6 @@ if (
   const syncOrderMessage = () => {
     const message = buildOrderMessage();
     orderMessage.textContent = message;
-    if (sendOrderMessageLink instanceof HTMLAnchorElement) {
-      sendOrderMessageLink.href = buildSmsHref(message);
-    }
     setSendButtonState(isFormReady());
   };
 
@@ -275,11 +271,8 @@ if (
     if (!(orderForm instanceof HTMLFormElement) || !orderForm.reportValidity()) return;
     const message = buildOrderMessage();
     orderMessage.textContent = message;
-    if (sendOrderMessageLink instanceof HTMLAnchorElement) {
-      const smsHref = buildSmsHref(message);
-      sendOrderMessageLink.href = smsHref;
-      window.location.href = smsHref;
-    }
+    const smsHref = buildSmsHref(message);
+    window.location.href = smsHref;
   });
 
   if (copyOrderMessageButton instanceof HTMLButtonElement) {
