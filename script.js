@@ -147,7 +147,15 @@ if (
 
   const buildSmsHref = (message) => {
     const encodedMessage = encodeURIComponent(message);
-    return `sms:${bakerPhoneNumber}&body=${encodedMessage}`;
+    const userAgent = navigator.userAgent || '';
+    const platform = navigator.platform || '';
+    const isAppleDevice =
+      /Mac|iPhone|iPad|iPod/i.test(platform) ||
+      /Mac OS X|iPhone|iPad|iPod/i.test(userAgent);
+
+    return isAppleDevice
+      ? `sms:${bakerPhoneNumber}&body=${encodedMessage}`
+      : `sms:${bakerPhoneNumber}?body=${encodedMessage}`;
   };
 
   const syncOrderMessage = () => {

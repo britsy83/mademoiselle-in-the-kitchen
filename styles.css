@@ -519,6 +519,26 @@ h3 {
   max-width: 50ch;
 }
 
+.order-notice {
+  margin-top: 1.25rem;
+  max-width: 56ch;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(155, 92, 85, 0.18);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.order-notice p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-mid);
+}
+
+.order-notice strong {
+  color: var(--rose-deep);
+}
+
 .order-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
